@@ -1,27 +1,26 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2010
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7F2B51E5-EF3E-499C-8794-BC85233D854E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Abstractions", "src\Cosmos.Business.Extensions.SMS.Abstractions\Cosmos.Business.Extensions.SMS.Abstractions.csproj", "{14C37E03-07FF-4A01-8961-FF460AE702A3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Abstractions", "src\Cosmos.Business.Extensions.SMS.Abstractions\Cosmos.Business.Extensions.SMS.Abstractions.csproj", "{14C37E03-07FF-4A01-8961-FF460AE702A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS", "src\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj", "{22444662-1567-442B-9A38-7F55CEB9DE28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS", "src\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj", "{22444662-1567-442B-9A38-7F55CEB9DE28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.SendCloud", "src\Cosmos.Business.Extensions.SMS.SendCloud\Cosmos.Business.Extensions.SMS.SendCloud.csproj", "{A760680F-8FFE-45BB-95DA-0EC5B59048BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.SendCloud", "src\Cosmos.Business.Extensions.SMS.SendCloud\Cosmos.Business.Extensions.SMS.SendCloud.csproj", "{A760680F-8FFE-45BB-95DA-0EC5B59048BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.SendCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.SendCloud.Tests\Cosmos.Business.Extensions.SMS.SendCloud.Tests.csproj", "{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.SendCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.SendCloud.Tests\Cosmos.Business.Extensions.SMS.SendCloud.Tests.csproj", "{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.ChuangLan", "src\Cosmos.Business.Extensions.SMS.ChuangLan\Cosmos.Business.Extensions.SMS.ChuangLan.csproj", "{1E327F59-F426-466A-989B-95C8A6B220AD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{14C37E03-07FF-4A01-8961-FF460AE702A3} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
-		{22444662-1567-442B-9A38-7F55CEB9DE28} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
-		{A760680F-8FFE-45BB-95DA-0EC5B59048BF} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
-		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{14C37E03-07FF-4A01-8961-FF460AE702A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -40,5 +39,22 @@ Global
 		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E327F59-F426-466A-989B-95C8A6B220AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E327F59-F426-466A-989B-95C8A6B220AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E327F59-F426-466A-989B-95C8A6B220AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E327F59-F426-466A-989B-95C8A6B220AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{14C37E03-07FF-4A01-8961-FF460AE702A3} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
+		{22444662-1567-442B-9A38-7F55CEB9DE28} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
+		{A760680F-8FFE-45BB-95DA-0EC5B59048BF} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
+		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
+		{1E327F59-F426-466A-989B-95C8A6B220AD} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {397F2541-42DD-474F-AE9D-4CF4D8610823}
 	EndGlobalSection
 EndGlobal
