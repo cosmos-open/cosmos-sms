@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{FD180CE3
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.SendCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.SendCloud.Tests\Cosmos.Business.Extensions.SMS.SendCloud.Tests.csproj", "{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.ChuangLan", "src\Cosmos.Business.Extensions.SMS.ChuangLan\Cosmos.Business.Extensions.SMS.ChuangLan.csproj", "{1E327F59-F426-466A-989B-95C8A6B220AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.ChuangLan", "src\Cosmos.Business.Extensions.SMS.ChuangLan\Cosmos.Business.Extensions.SMS.ChuangLan.csproj", "{1E327F59-F426-466A-989B-95C8A6B220AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.ChuangLan.Tests", "tests\Cosmos.Business.Extensions.SMS.ChuangLan.Tests\Cosmos.Business.Extensions.SMS.ChuangLan.Tests.csproj", "{8808C9CB-E2E1-49FA-9399-696EEA8B4418}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{1E327F59-F426-466A-989B-95C8A6B220AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E327F59-F426-466A-989B-95C8A6B220AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E327F59-F426-466A-989B-95C8A6B220AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8808C9CB-E2E1-49FA-9399-696EEA8B4418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8808C9CB-E2E1-49FA-9399-696EEA8B4418}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8808C9CB-E2E1-49FA-9399-696EEA8B4418}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8808C9CB-E2E1-49FA-9399-696EEA8B4418}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{A760680F-8FFE-45BB-95DA-0EC5B59048BF} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
 		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
 		{1E327F59-F426-466A-989B-95C8A6B220AD} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
+		{8808C9CB-E2E1-49FA-9399-696EEA8B4418} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {397F2541-42DD-474F-AE9D-4CF4D8610823}

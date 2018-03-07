@@ -5,7 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Cosmos.Business.Extensions.SMS.Abstractions\Cosmos.Business.Extensions.SMS.Abstractions.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Users\jianx\.nuget\packages\newtonsoft.json\11.0.1\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebApiClient">
+      <HintPath>C:\Users\jianx\.nuget\packages\laojiu.webapiclient\1.1.5\lib\netstandard2.0\WebApiClient.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>
