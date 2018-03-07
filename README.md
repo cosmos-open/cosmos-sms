@@ -5,7 +5,7 @@
 Cosmos.Business.Extensions.SMS 支持的服务商：
 
 + [ ] 阿里云
-+ [ ] 云片
++ [ ] [云片](https://www.yunpian.com/)
 + [ ] Submail
 + [ ] 螺丝帽
 + [ ] 阿里大于
@@ -15,7 +15,7 @@ Cosmos.Business.Extensions.SMS 支持的服务商：
 + [x] [SendCloud](https://www.sendcloud.net/) *客服拒绝提供测试账号，尚缺实际测试*
 + [ ] 百度云
 + [ ] 华信短信平台
-+ [ ] 253云通讯（创蓝）
++ [ ] [253云通讯（创蓝）](https://www.253.com/)
 + [ ] 融云
 + [ ] 天毅无线
 + [ ] 腾讯云 SMS
