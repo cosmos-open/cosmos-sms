@@ -4,17 +4,17 @@ using WebApiClient;
 using WebApiClient.Attributes;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud.Core {
-    [HttpHost("http://www.sendcloud.net/smsapi")]
+    [HttpHost("http://www.sendcloud.net")]
     public interface ISendCloudApi : IHttpApiClient {
-        [HttpGet("/timestamp/get")]
-        [JsonReturn]
+        [HttpGet("/smsapi/timestamp/get")]
+        [TimeStampReturn]
         ITask<ResponseData<TimeStampResult>> GetTimeStampAsync();
 
-        [HttpPost("/send")]
+        [HttpPost("/smsapi/send")]
         [SendCloudSendReturn]
         ITask<ResponseData<SmsCalledResult>> SendMessageAsync(FormUrlEncodedContent content);
 
-        [HttpPost("/send")]
+        [HttpPost("/smsapi/send")]
         [SendCloudSendReturn]
         ITask<ResponseData<SmsCalledResult>> SendCodeAsync(FormUrlEncodedContent content);
     }
