@@ -4,22 +4,23 @@
 
 Cosmos.Business.Extensions.SMS 支持的服务商：
 
-+ [ ] 阿里云
++ [ ] [阿里云 SMS](https://www.aliyun.com/product/sms)
++ [ ] [阿里大于](https://dayu.aliyun.com/)
++ [ ] [腾讯云 SMS](https://cloud.tencent.com/product/sms)
++ [ ] [百度云](https://cloud.baidu.com/)
 + [ ] [云片](https://www.yunpian.com/)
-+ [ ] Submail
-+ [ ] 螺丝帽
-+ [ ] 阿里大于
-+ [ ] 容联云通讯
-+ [ ] 互亿无线
-+ [ ] 聚合数据
-+ [x] [SendCloud](https://www.sendcloud.net/) *客服拒绝提供测试账号，尚缺实际测试*
-+ [ ] 百度云
-+ [ ] 华信短信平台
-+ [ ] [253云通讯（创蓝）](https://www.253.com/)
-+ [ ] 融云
-+ [ ] 天毅无线
-+ [ ] 腾讯云 SMS
++ [ ] [融云](http://www.rongcloud.cn/)
++ [ ] [螺丝帽](https://luosimao.com/)
++ [ ] [容联云通讯](http://www.yuntongxun.com/)
++ [ ] [互亿无线](http://www.ihuyi.com/  )
++ [ ] [聚合数据](https://www.juhe.cn/)
++ [ ] [华信短信平台](http://www.ipyy.com/)
++ [ ] [创蓝](https://www.253.com/)
++ [ ] [天毅无线](http://www.85hu.com/)
 + [ ] [微米](https://www.weimi.cc)
++ [ ] [Submail](https://www.mysubmail.com/)
++ [x] [SendCloud](https://www.sendcloud.net/)
++ [ ] [Twilio](https://www.twilio.com/)
 
 
 * * *
