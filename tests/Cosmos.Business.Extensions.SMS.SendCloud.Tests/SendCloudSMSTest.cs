@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using Cosmos.Business.Extensions.SMS.SendCloud.Configuration;
+using Cosmos.Business.Extensions.SMS.SendCloud.Core;
 using Cosmos.Business.Extensions.SMS.SendCloud.Models;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
@@ -25,6 +27,14 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Tests {
         public void ConfigChecking() {
             Assert.NotNull(_config);
             Assert.NotNull(_config.Account);
+        }
+
+        [Fact]
+        public async void GetTimeStamp() {
+            var timestamp = await _client.GetTimeStampAsync();
+            Assert.NotNull(timestamp);
+            Assert.NotNull(timestamp.Info);
+            Assert.True(timestamp.Info.Timestamp > 0);
         }
 
         /// <summary>
