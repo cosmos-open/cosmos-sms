@@ -2,7 +2,4 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
   </PropertyGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cosmos.Business.Extensions.SMS.Abstractions\Cosmos.Business.Extensions.SMS.Abstractions.csproj" />
-  </ItemGroup>
 </Project>

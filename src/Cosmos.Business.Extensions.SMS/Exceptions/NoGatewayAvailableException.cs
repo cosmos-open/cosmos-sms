@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cosmos.Business.Extensions.SMS.Abstractions.Exceptions {
+namespace Cosmos.Business.Extensions.SMS.Exceptions {
     public class NoGatewayAvailableException : Exception {
         
     }

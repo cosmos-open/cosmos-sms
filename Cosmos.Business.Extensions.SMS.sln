@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7F2B51E5-EF3E-499C-8794-BC85233D854E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Abstractions", "src\Cosmos.Business.Extensions.SMS.Abstractions\Cosmos.Business.Extensions.SMS.Abstractions.csproj", "{14C37E03-07FF-4A01-8961-FF460AE702A3}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS", "src\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj", "{22444662-1567-442B-9A38-7F55CEB9DE28}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.SendCloud", "src\Cosmos.Business.Extensions.SMS.SendCloud\Cosmos.Business.Extensions.SMS.SendCloud.csproj", "{A760680F-8FFE-45BB-95DA-0EC5B59048BF}"
@@ -25,10 +23,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{14C37E03-07FF-4A01-8961-FF460AE702A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{14C37E03-07FF-4A01-8961-FF460AE702A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{14C37E03-07FF-4A01-8961-FF460AE702A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{14C37E03-07FF-4A01-8961-FF460AE702A3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{22444662-1567-442B-9A38-7F55CEB9DE28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{22444662-1567-442B-9A38-7F55CEB9DE28}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22444662-1567-442B-9A38-7F55CEB9DE28}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -54,7 +48,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{14C37E03-07FF-4A01-8961-FF460AE702A3} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
 		{22444662-1567-442B-9A38-7F55CEB9DE28} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
 		{A760680F-8FFE-45BB-95DA-0EC5B59048BF} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
 		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}

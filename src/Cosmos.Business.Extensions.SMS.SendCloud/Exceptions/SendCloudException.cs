@@ -1,8 +1,8 @@
 ﻿using System;
-using Cosmos.Business.Extensions.SMS.Abstractions.Exceptions;
+using Cosmos.Business.Extensions.SMS.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud.Exceptions {
-    public class SendCloudException : Exception, ISMSException {
+    public class SendCloudException : Exception, ISmsException {
 
         public long SerialVersionUID { get; protected set; }
 

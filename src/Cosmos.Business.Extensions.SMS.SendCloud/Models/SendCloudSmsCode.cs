@@ -1,5 +1,4 @@
-﻿using Cosmos.Business.Extensions.SMS.Abstractions;
-using Cosmos.Business.Extensions.SMS.SendCloud.Exceptions;
+﻿using Cosmos.Business.Extensions.SMS.SendCloud.Exceptions;
 using Newtonsoft.Json;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {

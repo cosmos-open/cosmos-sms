@@ -13,7 +13,6 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Cosmos.Business.Extensions.SMS.Abstractions\Cosmos.Business.Extensions.SMS.Abstractions.csproj" />
     <ProjectReference Include="..\..\src\Cosmos.Business.Extensions.SMS.SendCloud\Cosmos.Business.Extensions.SMS.SendCloud.csproj" />
     <ProjectReference Include="..\..\src\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj" />
   </ItemGroup>

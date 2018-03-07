@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Cosmos.Business.Extensions.SMS.Abstractions;
 using Cosmos.Business.Extensions.SMS.SendCloud.Core.Extensions;
 using Cosmos.Business.Extensions.SMS.SendCloud.Exceptions;
 using Newtonsoft.Json;

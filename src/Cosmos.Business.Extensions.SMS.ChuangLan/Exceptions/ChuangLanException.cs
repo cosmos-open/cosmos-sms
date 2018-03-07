@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Cosmos.Business.Extensions.SMS.Abstractions.Exceptions;
+using Cosmos.Business.Extensions.SMS.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Exceptions
 {
-    public class ChuangLanException : Exception, ISMSException
+    public class ChuangLanException : Exception, ISmsException
     {
         public long SerialVersionUID { get; protected set; }
 

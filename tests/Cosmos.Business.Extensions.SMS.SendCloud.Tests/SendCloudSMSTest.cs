@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using Cosmos.Business.Extensions.SMS.SendCloud.Configuration;
-using Cosmos.Business.Extensions.SMS.SendCloud.Core;
 using Cosmos.Business.Extensions.SMS.SendCloud.Models;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
