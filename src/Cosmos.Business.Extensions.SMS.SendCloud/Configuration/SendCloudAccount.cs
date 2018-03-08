@@ -1,6 +1,4 @@
-﻿using Cosmos.Business.Extensions.SMS.Abstractions;
-
-namespace Cosmos.Business.Extensions.SMS.SendCloud.Configuration {
+﻿namespace Cosmos.Business.Extensions.SMS.SendCloud.Configuration {
     public class SendCloudAccount : IAccountSettings {
         public string User { get; set; }
         public string Key { get; set; }
