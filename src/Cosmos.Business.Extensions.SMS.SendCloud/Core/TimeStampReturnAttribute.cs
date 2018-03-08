@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.SendCloud.Models.Results;
 using Newtonsoft.Json.Linq;
 using WebApiClient.Attributes;

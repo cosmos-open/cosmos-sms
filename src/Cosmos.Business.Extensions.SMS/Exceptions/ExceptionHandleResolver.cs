@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Cosmos.Business.Extensions.SMS.SendCloud.Core {
+namespace Cosmos.Business.Extensions.SMS.Exceptions {
     public static class ExceptionHandleResolver {
         private static Action<Exception> _exceptionHandle { get; set; }
 

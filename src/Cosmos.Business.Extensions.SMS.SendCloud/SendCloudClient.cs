@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Cosmos.Business.Extensions.SMS.Abstractions;
+using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.SendCloud.Configuration;
 using Cosmos.Business.Extensions.SMS.SendCloud.Core;
 using Cosmos.Business.Extensions.SMS.SendCloud.Core.Helpers;
