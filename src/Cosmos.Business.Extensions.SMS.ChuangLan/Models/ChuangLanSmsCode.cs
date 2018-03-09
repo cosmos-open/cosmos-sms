@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
 {
-    public class ChuangLanSmsCode:ISMSCode
+    public class ChuangLanSmsCode
     {
         [JsonProperty("phone")]
         public string Phone { get; set; }

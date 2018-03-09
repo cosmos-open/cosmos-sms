@@ -10,7 +10,7 @@ using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan
 {
-    public class ChuangLanClient:ISMSClient<ChuangLanSmsMessage,ChuangLanSmsCode,ResponseData>
+    public class ChuangLanClient
     {
         private readonly ChuangLanConfig _config;
         private readonly ChuangLanAccount _chuangLanCodeAccount;

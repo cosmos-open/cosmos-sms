@@ -4,7 +4,7 @@ using Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions;
 using Cosmos.Business.Extensions.SMS.Aliyun.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
-    public class AliyunDysmsCode : ISMSCode {
+    public class AliyunDysmsCode  {
         /// <summary>
         /// 短信模板Code，应严格按"模板CODE"填写, 请参考: https://dysms.console.aliyun.com/dysms.htm#/develop/template，必填
         /// </summary>

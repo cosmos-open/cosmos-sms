@@ -1,7 +1,7 @@
 ﻿using Cosmos.Business.Extensions.SMS.Yunpian.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.Yunpian.Models {
-    public class YunpianSmsCode : ISMSCode {
+    public class YunpianSmsCode {
         public string PhoneNumber { get; set; }
         public string Content { get; set; }
         public string Extend { get; set; }

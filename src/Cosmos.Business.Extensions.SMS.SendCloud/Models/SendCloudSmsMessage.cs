@@ -3,7 +3,7 @@ using Cosmos.Business.Extensions.SMS.SendCloud.Core.Extensions;
 using Cosmos.Business.Extensions.SMS.SendCloud.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
-    public class SendCloudSmsMessage : ISMSMessage {
+    public class SendCloudSmsMessage {
 
         public int? TemplateId { get; set; }
 

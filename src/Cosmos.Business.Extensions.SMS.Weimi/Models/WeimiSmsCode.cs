@@ -3,7 +3,7 @@ using System.Linq;
 using Cosmos.Business.Extensions.SMS.Weimi.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.Weimi.Models {
-    public class WeimiSmsCode : ISMSCode {
+    public class WeimiSmsCode {
 
         public string TemplateId { get; set; }
 

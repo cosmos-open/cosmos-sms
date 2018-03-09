@@ -11,7 +11,7 @@ using Cosmos.Business.Extensions.SMS.SendCloud.Models.Results;
 using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud {
-    public class SendCloudClient : ISMSClient<SendCloudSmsMessage, SendCloudSmsCode, ResponseData<SmsCalledResult>> {
+    public class SendCloudClient {
         private readonly SendCloudConfig _config;
         private readonly SendCloudAccount _sendCloudAccount;
         private readonly ISendCloudApi _proxy;

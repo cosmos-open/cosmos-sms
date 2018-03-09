@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
-    public class SendCloudSmsCode : ISMSCode {
+    public class SendCloudSmsCode {
         [JsonProperty("phone")]
         public string Phone { get; set; }
 

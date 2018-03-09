@@ -2,7 +2,7 @@
 using Cosmos.Business.Extensions.SMS.Weimi.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.Weimi.Models {
-    public class WeimiSmsMessage : ISMSMessage {
+    public class WeimiSmsMessage {
 
         public string Content { get; set; }
 
