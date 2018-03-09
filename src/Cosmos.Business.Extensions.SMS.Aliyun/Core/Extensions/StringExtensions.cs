@@ -9,8 +9,8 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions
 
             while (index< value.Length)
             {
-                index += 2;
                 list.Add(byte.Parse(value.Substring(index, 2), System.Globalization.NumberStyles.AllowHexSpecifier));
+                index += 2;
             }
 
             return list.ToArray();
