@@ -8,10 +8,10 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Core {
 
         private static Dictionary<SmsSendEventType, SmsSendEventRule> _legitimateSmsSendEventRules
             = new Dictionary<SmsSendEventType, SmsSendEventRule> {
-                {SmsSendEventType.Code, new SmsSendEventRule()},
-                {SmsSendEventType.Message, new SmsSendEventRule()}
+                {SmsSendEventType.Code, new SmsSendEventRule(Constants.MaxReceivers)},
+                {SmsSendEventType.Message, new SmsSendEventRule(Constants.MaxReceivers)}
             };
 
-        private AliyunDysmsRestrict() : base(_legitimateSmsSendEventRules, Constants.MaxReceivers) { }
+        private AliyunDysmsRestrict() : base(_legitimateSmsSendEventRules) { }
     }
 }
