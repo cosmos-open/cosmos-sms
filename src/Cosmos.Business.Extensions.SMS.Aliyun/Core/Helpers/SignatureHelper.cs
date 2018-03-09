@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions;
 using Cosmos.Encryption;
 
 namespace Cosmos.Business.Extensions.SMS.Aliyun.Core.Helpers {
@@ -18,7 +19,12 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Core.Helpers {
             var orgin = "POST&%2F&" +
                         PercentEncode(string.Join("&", coll.OrderBy(x => x.Key, StringComparer.Ordinal).Select(x => $"{PercentEncode(x.Key)}={PercentEncode(x.Value)}")));
             var sign = HMACSHA1HashingProvider.Signature(orgin, key + "&", Encoding.UTF8);
-            return PercentEncode(sign);
+
+            // hex string to byte array
+            var buffer = sign.HexToBytes();
+
+            // convert bytes to base64 string and return
+            return Convert.ToBase64String(buffer);
         }
 
         private static string PercentEncode(string value) {
