@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Cosmos.Business.Extensions.SMS.Aliyun.Configuration;
 using Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions;
 using Cosmos.Business.Extensions.SMS.Aliyun.Exceptions;
 
@@ -18,6 +19,11 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
         public string GetPhoneString() => string.Join(",", Phone);
 
         public string GetTemplateParamsString() => new {code = Code}.ToJson();
+        
+        public void FixParameters(AliyunDysmsConfig config) {
+            if (string.IsNullOrWhiteSpace(TemplateCode))
+                TemplateCode = config.TemplateCode;
+        }
 
         public void CheckParameters() {
             if (string.IsNullOrWhiteSpace(TemplateCode)) {

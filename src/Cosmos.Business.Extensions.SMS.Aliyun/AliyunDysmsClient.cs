@@ -37,6 +37,8 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun {
             if (string.IsNullOrWhiteSpace(_aliyunDysmsAccount.AccessKeySecret)) throw new ArgumentNullException(nameof(_aliyunDysmsAccount.AccessKeySecret));
             if (string.IsNullOrWhiteSpace(_config.SignName)) throw new ArgumentNullException(nameof(_config.SignName));
 
+            message.FixParameters(_config);
+
             message.CheckParameters();
 
             var bizParams = new Dictionary<string, string> {
@@ -80,6 +82,8 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun {
             if (string.IsNullOrWhiteSpace(_aliyunDysmsAccount.AccessKeySecret)) throw new ArgumentNullException(nameof(_aliyunDysmsAccount.AccessKeySecret));
             if (string.IsNullOrWhiteSpace(_config.SignName)) throw new ArgumentNullException(nameof(_config.SignName));
 
+            code.FixParameters(_config);
+
             code.CheckParameters();
 
             var bizParams = new Dictionary<string, string> {
@@ -105,8 +109,6 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun {
             bizParams.Add("Signature", signature);
 
             var content = new FormUrlEncodedContent(bizParams);
-
-            //return await _proxy.SendCodeAsync(content);
 
             return await _proxy.SendCodeAsync(content)
                 .Retry(_config.RetryTimes)

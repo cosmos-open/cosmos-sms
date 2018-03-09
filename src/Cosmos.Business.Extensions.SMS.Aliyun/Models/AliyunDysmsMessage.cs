@@ -1,6 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using Cosmos.Business.Extensions.SMS.Aliyun.Configuration;
 using Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions;
 using Cosmos.Business.Extensions.SMS.Aliyun.Exceptions;
 
@@ -14,7 +14,7 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
         public List<string> Phone { get; set; } = new List<string>();
 
         public Dictionary<string, string> TemplateParams { get; set; } = new Dictionary<string, string>();
-        
+
         public string OutId { get; set; }
 
         public string GetPhoneString() => string.Join(",", Phone);
@@ -22,6 +22,11 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
         public string GetTemplateParamsString() => TemplateParams.ToJson();
 
         public bool HasTemplateParams() => TemplateParams.Any();
+
+        public void FixParameters(AliyunDysmsConfig config) {
+            if (string.IsNullOrWhiteSpace(TemplateCode))
+                TemplateCode = config.TemplateCode;
+        }
 
         public void CheckParameters() {
             if (string.IsNullOrWhiteSpace(TemplateCode)) {
@@ -32,7 +37,7 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
             if (phoneCount == 0) {
                 throw new AliyunDysmsException("收信人为空");
             }
-            
+
             if (phoneCount > Core.Constants.MaxReceivers) {
                 throw new AliyunDysmsException("收信人超过限制");
             }
