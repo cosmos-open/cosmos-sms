@@ -32,6 +32,10 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
             if (string.IsNullOrWhiteSpace(Code)) {
                 throw new AliyunDysmsException("验证码不能为空");
             }
+            
+            if (phoneCount > Core.Constants.MaxReceivers) {
+                throw new AliyunDysmsException("收信人超过限制");
+            }
         }
     }
 }

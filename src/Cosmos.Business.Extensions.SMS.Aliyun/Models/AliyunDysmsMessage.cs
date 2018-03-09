@@ -32,6 +32,10 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
             if (phoneCount == 0) {
                 throw new AliyunDysmsException("收信人为空");
             }
+            
+            if (phoneCount > Core.Constants.MaxReceivers) {
+                throw new AliyunDysmsException("收信人超过限制");
+            }
         }
     }
 }
