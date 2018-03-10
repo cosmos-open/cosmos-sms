@@ -15,7 +15,6 @@ Cosmos.Business.Extensions.SMS 支持的服务商：
 + [ ] [聚合数据](https://www.juhe.cn/)
 + [ ] [华信短信平台](http://www.ipyy.com/)
 + [ ] [创蓝](https://www.253.com/)
-+ [ ] [天毅无线](http://www.85hu.com/)
 + [x] [微米](https://www.weimi.cc)
 + [ ] [Submail](https://www.mysubmail.com/)
 + [x] [SendCloud](https://www.sendcloud.net/)
