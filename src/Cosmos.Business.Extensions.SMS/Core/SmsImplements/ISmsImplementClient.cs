@@ -7,5 +7,7 @@ namespace Cosmos.Business.Extensions.SMS.Core.SmsImplements {
         Task<TImplementSendCalledResultWrapper> SendBatchMessageAsync(SmsSendEvent sendEvent);
         Task<TImplementSendCalledResultWrapper> SendCodeAsync(SmsSendEvent sendEvent);
         Task<TImplementSendCalledResultWrapper> SendBatchCodeAsync(SmsSendEvent sendEvent);
+        Task<TImplementSendCalledResultWrapper> SendTemplateMessageAsync(SmsSendEvent sendEvent);
+        Task<TImplementSendCalledResultWrapper> SendBatchTemplateMessageAsync(SmsSendEvent sendEvent);
     }
 }
