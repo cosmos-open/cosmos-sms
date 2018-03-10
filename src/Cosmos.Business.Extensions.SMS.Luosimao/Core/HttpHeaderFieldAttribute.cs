@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using WebApiClient.Contexts;
 using WebApiClient.Interfaces;
 
 namespace Cosmos.Business.Extensions.SMS.Luosimao.Core {
-    public class HttpHeaderFieldAttribute : IApiParameterAttribute {
+    [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
+    public class HttpHeaderFieldAttribute : Attribute, IApiParameterAttribute {
 
         public string Key { get; set; }
 

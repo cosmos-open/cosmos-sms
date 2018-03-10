@@ -9,7 +9,7 @@ Cosmos.Business.Extensions.SMS 支持的服务商：
 + [ ] [百度云](https://cloud.baidu.com/)
 + [x] [云片](https://www.yunpian.com/)
 + [ ] [融云](http://www.rongcloud.cn/)
-+ [ ] [螺丝帽](https://luosimao.com/)
++ [x] [螺丝帽](https://luosimao.com/)
 + [ ] [容联云通讯](http://www.yuntongxun.com/)
 + [ ] [互亿无线](http://www.ihuyi.com/  )
 + [ ] [聚合数据](https://www.juhe.cn/)
