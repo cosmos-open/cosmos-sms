@@ -8,7 +8,4 @@
   <ItemGroup>
     <PackageReference Include="qcloud.qcloudsms_csharp" Version="0.1.3" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Results" />
-  </ItemGroup>
 </Project>
