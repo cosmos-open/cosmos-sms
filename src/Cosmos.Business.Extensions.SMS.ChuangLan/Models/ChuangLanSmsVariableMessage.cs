@@ -1,19 +1,21 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
 using Cosmos.Business.Extensions.SMS.ChuangLan.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
 {
-    public class ChuangLanSmsMessage: ChuangLanSmsBase
+    public class ChuangLanSmsVariableMessage:ChuangLanSmsBase
     {
-        public List<string> PhoneNumbers { get; set; }=new List<string>();
-
         public string Content { get; set; }
 
-        public string GetPhoneString() => string.Join(",", PhoneNumbers);
+        public List<string> Params { get; set; } = new List<string>();
+
+        public string GetParamsString() => string.Join(";", Params);
 
         public void CheckParameters()
         {
-            var phoneCount = PhoneNumbers?.Count;
+            var phoneCount = Params?.Count;
             if (phoneCount == 0)
             {
                 throw new ChuangLanSmsException("收信人为空");

@@ -34,7 +34,7 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
             _exceptionHandler = globalHandle;
         }
 
-        public Task<ResponseData> SendAsync(ChuangLanSmsMessage message)
+        public async Task<ResponseData> SendAsync(ChuangLanSmsMessage message)
         {
             if (message == null)
             {
@@ -48,9 +48,118 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
             else
             {
                 _chuangLanCodeAccount.CheckParameters();
-            }            
+            }
 
-            throw new NotImplementedException();
+            message.CheckParameters();
+
+            var bizParams = new SortedDictionary<string, string>()
+            {
+                {
+                    "account",
+                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsUser : _chuangLanCodeAccount.SmsUser
+                },
+                {
+                    "password",
+                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsKey : _chuangLanCodeAccount.SmsKey
+                },
+                {
+                    "msg", message.Content
+                },
+                {"phone", message.GetPhoneString()},
+            };
+
+            if (message.SendTime.HasValue)
+            {
+                bizParams.Add("sendtime", message.SendTime.Value.ToString("yyyyMMddHHmm"));
+            }
+
+            if (message.Report.HasValue && message.Report.Value)
+            {
+                bizParams.Add("report", "true");
+            }
+
+            if (!string.IsNullOrWhiteSpace(message.Extend))
+            {
+                bizParams.Add("extend", message.Extend);
+            }
+
+            if (!string.IsNullOrWhiteSpace(message.Uid))
+            {
+                bizParams.Add("uid", message.Uid);
+            }
+
+            _proxy.ApiConfig.HttpHost = new Uri(_config.UseMarketingSms?_chuangLanMarketingAccount.ApiUrl:_chuangLanCodeAccount.ApiUrl);
+            return await _proxy.SendMessageAsync(bizParams)
+                .Retry(_config.RetryTimes)
+                .Handle().WhenCatch<Exception>(e =>
+                {
+                    _exceptionHandler?.Invoke(e);
+                    return ReturnAsDefautlResponse();
+                });
+        }
+
+        public async Task<VariableResponseData> SendVariableAsync(ChuangLanSmsVariableMessage message)
+        {
+            if(message == null)
+            {
+                throw new ArgumentNullException(nameof(message));
+            }
+
+            if (_config.UseMarketingSms)
+            {
+                _chuangLanMarketingAccount.CheckParameters();
+            }
+            else
+            {
+                _chuangLanCodeAccount.CheckParameters();
+            }
+
+            message.CheckParameters();
+
+            var bizParams = new SortedDictionary<string, string>()
+            {
+                {
+                    "account",
+                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsUser : _chuangLanCodeAccount.SmsUser
+                },
+                {
+                    "password",
+                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsKey : _chuangLanCodeAccount.SmsKey
+                },
+                {
+                    "msg", message.Content
+                },
+                {"params", message.GetParamsString()},
+            };
+
+            if (message.SendTime.HasValue)
+            {
+                bizParams.Add("sendtime", message.SendTime.Value.ToString("yyyyMMddHHmm"));
+            }
+
+            if (message.Report.HasValue && message.Report.Value)
+            {
+                bizParams.Add("report", "true");
+            }
+
+            if (!string.IsNullOrWhiteSpace(message.Extend))
+            {
+                bizParams.Add("extend", message.Extend);
+            }
+
+            if (!string.IsNullOrWhiteSpace(message.Uid))
+            {
+                bizParams.Add("uid", message.Uid);
+            }
+
+            _proxy.ApiConfig.HttpHost = new Uri(_config.UseMarketingSms ? _chuangLanMarketingAccount.ApiUrl : _chuangLanCodeAccount.ApiUrl);
+            return await _proxy.SendVariableMessageAsync(bizParams)
+                .Retry(_config.RetryTimes)
+                .Handle().WhenCatch<Exception>(e =>
+                {
+                    _exceptionHandler?.Invoke(e);
+                    return ReturnAsVariableDefautlResponse();
+                });
         }
 
         public async Task<ResponseData> SendCodeAsync(ChuangLanSmsCode code)
@@ -66,9 +175,29 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
             {
                 {"account", _chuangLanCodeAccount.SmsUser},
                 {"password", _chuangLanCodeAccount.SmsKey},
-                {"msg", _chuangLanCodeAccount.Signature + _config.CodeTemplate + code.Msg},
+                {"msg", code.Msg},
                 {"phone", code.Phone},
             };
+
+            if (code.SendTime.HasValue)
+            {
+                bizParams.Add("sendtime", code.SendTime.Value.ToString("yyyyMMddHHmm"));
+            }
+
+            if (code.Report.HasValue&&code.Report.Value)
+            {
+                bizParams.Add("report","true");                
+            }
+
+            if (!string.IsNullOrWhiteSpace(code.Extend))
+            {
+                bizParams.Add("extend", code.Extend);
+            }
+
+            if (!string.IsNullOrWhiteSpace(code.Uid))
+            {
+                bizParams.Add("uid",code.Uid);
+            }
 
             _proxy.ApiConfig.HttpHost =new Uri(_chuangLanCodeAccount.ApiUrl);
             return await _proxy.SendCodeAsync(bizParams)
@@ -82,6 +211,13 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
 
         private static ResponseData ReturnAsDefautlResponse()
             => new ResponseData
+            {
+                Code = "500",
+                ErrorMsg = "解析错误，返回默认结果"
+            };
+
+        private static VariableResponseData ReturnAsVariableDefautlResponse()
+            => new VariableResponseData
             {
                 Code = "500",
                 ErrorMsg = "解析错误，返回默认结果"

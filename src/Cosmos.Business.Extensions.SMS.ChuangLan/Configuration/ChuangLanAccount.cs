@@ -10,8 +10,6 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Configuration {
 
         public string ApiUrl { get; set; }
 
-        public string Signature { get; set; }
-
         public void CheckParameters() {
             if (string.IsNullOrWhiteSpace(SmsUser)) {
                 throw new ArgumentNullException(nameof(SmsUser));
