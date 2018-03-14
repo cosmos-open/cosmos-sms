@@ -25,6 +25,11 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian {
         }
 
         public Task<Result<SmsBatchSend>> SendAsync(YunpianSmsMessage message) {
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            if (string.IsNullOrWhiteSpace(_yunpianAccount.ApiKey)) throw new ArgumentNullException(nameof(_yunpianAccount.ApiKey));
+
+            message.CheckParameters();
+
             var bizParams = new Dictionary<string, string> {
                 {Const.Mobile, message.GetPhoneString()},
                 {Const.Text, message.Content}
@@ -42,6 +47,11 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian {
         }
 
         public Task<Result<SmsSingleSend>> SendCodeAsync(YunpianSmsCode code) {
+            if (code == null) throw new ArgumentNullException(nameof(code));
+            if (string.IsNullOrWhiteSpace(_yunpianAccount.ApiKey)) throw new ArgumentNullException(nameof(_yunpianAccount.ApiKey));
+
+            code.CheckParameters();
+
             var bizParams = new Dictionary<string, string> {
                 {Const.Mobile, code.PhoneNumber},
                 {Const.Text, code.Content}
