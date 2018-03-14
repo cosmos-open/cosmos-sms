@@ -13,7 +13,7 @@ namespace Cosmos.Business.Extensions.SMS.Luosimao.Core {
             var name = string.IsNullOrWhiteSpace(Key) ? parameter.Name : Key;
 
             if (parameter.Value is string stringVal) {
-                context.RequestMessage.Headers.Add(name, stringVal);
+                context.RequestMessage.Headers.TryAddWithoutValidation(name, stringVal);
             }
 
             return Task.CompletedTask;
