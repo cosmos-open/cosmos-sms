@@ -2,7 +2,7 @@
 using Cosmos.Encryption;
 
 namespace Cosmos.Business.Extensions.SMS.RongCloud.Core {
-    public static class SignatureHalper {
+    public static class SignatureHelper {
         public static (string nonce, string timestamp, string signature) GenerateSignature(string appSecret) {
             var rd = new Random((int) DateTime.Now.Ticks);
             var rd_i = rd.Next();

@@ -43,7 +43,7 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud {
                 bizParams.Add($"p{kvp.Key}", kvp.Value);
             }
 
-            var signatureTuple = SignatureHalper.GenerateSignature(_rongAccount.AppSecret);
+            var signatureTuple = SignatureHelper.GenerateSignature(_rongAccount.AppSecret);
             var signatureBag = new RongCloudSignatureBag {
                 AppKey = _rongAccount.AppKey,
                 Nonce = signatureTuple.nonce,

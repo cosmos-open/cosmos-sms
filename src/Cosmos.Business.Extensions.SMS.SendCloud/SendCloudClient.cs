@@ -32,6 +32,7 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud {
         }
 
         public async Task<ResponseData<SmsCalledResult>> SendAsync(SendCloudSmsMessage message) {
+
             if (message == null) throw new ArgumentNullException(nameof(message));
             if (string.IsNullOrWhiteSpace(_sendCloudAccount.SmsUser)) throw new ArgumentNullException(nameof(_sendCloudAccount.SmsUser));
             if (string.IsNullOrWhiteSpace(_sendCloudAccount.SmsKey)) throw new ArgumentNullException(nameof(_sendCloudAccount.SmsKey));
