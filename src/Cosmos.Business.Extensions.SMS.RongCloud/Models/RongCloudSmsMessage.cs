@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using Cosmos.Business.Extensions.SMS.RongCloud.Exceptions;
+using Cosmos.Business.Extensions.SMS.Exceptions;
+using Cosmos.Business.Extensions.SMS.RongCloud.Core;
 
 namespace Cosmos.Business.Extensions.SMS.RongCloud.Models {
     public class RongCloudSmsMessage {
@@ -9,9 +10,9 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud.Models {
         public Dictionary<int, string> Vars { get; set; } = new Dictionary<int, string>();
 
         public void CheckParameters() {
-            if (string.IsNullOrWhiteSpace(Mobile)) throw new RongCloudSmsException("Paramer 'mobile' is required");
-            if (string.IsNullOrWhiteSpace(TemplateId)) throw new RongCloudSmsException("Paramer 'templateId' is required");
-            if (string.IsNullOrWhiteSpace(Region)) throw new RongCloudSmsException("Paramer 'region' is required");
+            if (string.IsNullOrWhiteSpace(Mobile)) throw new InvalidArgumentException("Paramer 'mobile' is required", Constants.ServiceName, 401);
+            if (string.IsNullOrWhiteSpace(TemplateId)) throw new InvalidArgumentException("Paramer 'templateId' is required", Constants.ServiceName, 401);
+            if (string.IsNullOrWhiteSpace(Region)) throw new InvalidArgumentException("Paramer 'region' is required", Constants.ServiceName, 401);
         }
     }
 }

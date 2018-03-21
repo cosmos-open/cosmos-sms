@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
+using Cosmos.Business.Extensions.SMS.Exceptions;
+using Cosmos.Business.Extensions.SMS.SendCloud.Core;
 using Cosmos.Business.Extensions.SMS.SendCloud.Core.Extensions;
-using Cosmos.Business.Extensions.SMS.SendCloud.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
     public class SendCloudSmsMessage {
@@ -19,16 +20,16 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
 
         public void CheckParameters() {
             if (TemplateId == null) {
-                throw new SendCloudSmsException("模版为空");
+                throw new InvalidArgumentException("模版为空", Constants.ServiceName, 401);
             }
 
             var phoneCount = Phone?.Count;
             if (phoneCount == 0) {
-                throw new SendCloudSmsException("收信人为空");
+                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
             }
 
             if (phoneCount > Core.Constants.MaxReceivers) {
-                throw new SendCloudSmsException("收信人超过限制");
+                throw new InvalidArgumentException("收信人超过限制", Constants.ServiceName, 401);
             }
         }
     }

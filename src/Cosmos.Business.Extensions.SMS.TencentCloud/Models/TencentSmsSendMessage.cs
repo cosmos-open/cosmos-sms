@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
-using Cosmos.Business.Extensions.SMS.TencentCloud.Exceptions;
+using Cosmos.Business.Extensions.SMS.Exceptions;
+using Cosmos.Business.Extensions.SMS.TencentCloud.Core;
 
 namespace Cosmos.Business.Extensions.SMS.TencentCloud.Models {
     public class TencentSmsSendMessage {
@@ -12,7 +13,7 @@ namespace Cosmos.Business.Extensions.SMS.TencentCloud.Models {
         public void CheckParameters() {
             var phoneCount = PhoneNumbers?.Count;
             if (phoneCount == 0) {
-                throw new TencentSmsException("收信人为空");
+                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
             }
         }
     }

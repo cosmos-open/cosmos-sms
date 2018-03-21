@@ -12,7 +12,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Configuration" />
-    <Folder Include="Core" />
     <Folder Include="Models\Results" />
   </ItemGroup>
 </Project>

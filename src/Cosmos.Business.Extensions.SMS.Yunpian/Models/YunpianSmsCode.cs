@@ -1,4 +1,5 @@
-﻿using Cosmos.Business.Extensions.SMS.Yunpian.Exceptions;
+﻿using Cosmos.Business.Extensions.SMS.Exceptions;
+using Cosmos.Business.Extensions.SMS.Yunpian.Core;
 
 namespace Cosmos.Business.Extensions.SMS.Yunpian.Models {
     public class YunpianSmsCode {
@@ -10,11 +11,11 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian.Models {
 
         public void CheckParameters() {
             if (string.IsNullOrWhiteSpace(PhoneNumber)) {
-                throw new YunpianSmsException("收件人为空");
+                throw new InvalidArgumentException("收件人为空", Constants.ServiceName, 401);
             }
 
             if (string.IsNullOrWhiteSpace(Content)) {
-                throw new YunpianSmsException("信息为空");
+                throw new InvalidArgumentException("信息为空", Constants.ServiceName, 401);
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using Cosmos.Business.Extensions.SMS.Luosimao.Exceptions;
+﻿using Cosmos.Business.Extensions.SMS.Exceptions;
+using Cosmos.Business.Extensions.SMS.Luosimao.Core;
 
 namespace Cosmos.Business.Extensions.SMS.Luosimao.Models {
     public class LuosimaoSmsMessage {
@@ -6,12 +7,12 @@ namespace Cosmos.Business.Extensions.SMS.Luosimao.Models {
         public string Content { get; set; }
 
         public void CheckParameters() {
-            if (string.IsNullOrWhiteSpace(this.PhoneNumber)) {
-                throw new LuosimaoSmsException("收信人为空");
+            if (string.IsNullOrWhiteSpace(PhoneNumber)) {
+                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
             }
 
-            if (string.IsNullOrWhiteSpace(this.Content)) {
-                throw new LuosimaoSmsException("验证码为空");
+            if (string.IsNullOrWhiteSpace(Content)) {
+                throw new InvalidArgumentException("验证码为空", Constants.ServiceName, 401);
             }
         }
     }

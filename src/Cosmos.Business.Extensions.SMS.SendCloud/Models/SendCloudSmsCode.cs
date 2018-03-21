@@ -1,4 +1,5 @@
-﻿using Cosmos.Business.Extensions.SMS.SendCloud.Exceptions;
+﻿using Cosmos.Business.Extensions.SMS.Exceptions;
+using Cosmos.Business.Extensions.SMS.SendCloud.Core;
 using Newtonsoft.Json;
 
 namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
@@ -14,11 +15,11 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
 
         public void CheckParameters() {
             if (string.IsNullOrWhiteSpace(this.Phone)) {
-                throw new SendCloudSmsException("收信人为空");
+                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
             }
 
             if (string.IsNullOrWhiteSpace(this.Code)) {
-                throw new SendCloudSmsException("验证码为空");
+                throw new InvalidArgumentException("验证码为空", Constants.ServiceName, 401);
             }
         }
     }

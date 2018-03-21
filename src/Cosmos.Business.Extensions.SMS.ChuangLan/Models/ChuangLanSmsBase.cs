@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
-{
-    public class ChuangLanSmsBase
-    {
+namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models {
+    public class ChuangLanSmsBase {
         public DateTime? SendTime { get; set; }
 
         public bool? Report { get; set; } = false;

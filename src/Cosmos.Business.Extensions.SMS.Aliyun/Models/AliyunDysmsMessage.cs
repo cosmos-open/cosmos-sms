@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Cosmos.Business.Extensions.SMS.Aliyun.Configuration;
+using Cosmos.Business.Extensions.SMS.Aliyun.Core;
 using Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions;
-using Cosmos.Business.Extensions.SMS.Aliyun.Exceptions;
+using Cosmos.Business.Extensions.SMS.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
     public class AliyunDysmsMessage {
@@ -30,16 +31,16 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Models {
 
         public void CheckParameters() {
             if (string.IsNullOrWhiteSpace(TemplateCode)) {
-                throw new AliyunDysmsException("短信模板 Code 不能为空");
+                throw new InvalidArgumentException("短信模板 Code 不能为空", Constants.ServiceName, 401);
             }
 
             var phoneCount = Phone?.Count;
             if (phoneCount == 0) {
-                throw new AliyunDysmsException("收信人为空");
+                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
             }
 
-            if (phoneCount > Core.Constants.MaxReceivers) {
-                throw new AliyunDysmsException("收信人超过限制");
+            if (phoneCount > Constants.MaxReceivers) {
+                throw new InvalidArgumentException("收信人超过限制", Constants.ServiceName, 401);
             }
         }
     }

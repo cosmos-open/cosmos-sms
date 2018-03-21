@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Cosmos.Business.Extensions.SMS.Weimi.Exceptions;
+using Cosmos.Business.Extensions.SMS.Exceptions;
+using Cosmos.Business.Extensions.SMS.Weimi.Core;
 
 namespace Cosmos.Business.Extensions.SMS.Weimi.Models {
     public class WeimiSmsCode {
@@ -19,16 +20,16 @@ namespace Cosmos.Business.Extensions.SMS.Weimi.Models {
 
         public void CheckParameters() {
             if (TemplateId == null) {
-                throw new WeimiSmsException("模版为空");
+                throw new InvalidArgumentException("模版为空", Constants.ServiceName, 401);
             }
 
             var phoneCount = PhoneNumbers?.Count;
             if (phoneCount == 0) {
-                throw new WeimiSmsException("收信人为空");
+                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
             }
 
             if (phoneCount > Core.Constants.MaxReceivers) {
-                throw new WeimiSmsException("收信人超过限制");
+                throw new InvalidArgumentException("收信人超过限制", Constants.ServiceName, 401);
             }
         }
     }
