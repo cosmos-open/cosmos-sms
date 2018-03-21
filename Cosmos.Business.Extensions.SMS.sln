@@ -73,6 +73,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RunsOn", "RunsOn", "{610E08
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sinks", "Sinks", "{05215128-1771-4B71-9860-3703162B541B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore", "src\Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore\Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore.csproj", "{F76141AA-F359-4FEB-A7B9-C32C30E680A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.RunsOn.Console", "src\Cosmos.Business.Extensions.SMS.RunsOn.Console\Cosmos.Business.Extensions.SMS.RunsOn.Console.csproj", "{0149E953-4187-47AB-BED4-62BDF6348A2B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -203,6 +207,14 @@ Global
 		{2F1AD515-6948-4916-9AE1-3052DB966B00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F1AD515-6948-4916-9AE1-3052DB966B00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F1AD515-6948-4916-9AE1-3052DB966B00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F76141AA-F359-4FEB-A7B9-C32C30E680A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F76141AA-F359-4FEB-A7B9-C32C30E680A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F76141AA-F359-4FEB-A7B9-C32C30E680A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F76141AA-F359-4FEB-A7B9-C32C30E680A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0149E953-4187-47AB-BED4-62BDF6348A2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0149E953-4187-47AB-BED4-62BDF6348A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0149E953-4187-47AB-BED4-62BDF6348A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0149E953-4187-47AB-BED4-62BDF6348A2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -241,6 +253,8 @@ Global
 		{1A5EE1C5-7FFC-40E9-865E-3759BBA9EA9A} = {05215128-1771-4B71-9860-3703162B541B}
 		{FDCDE1AA-3B2A-430D-B152-5728C1142FB3} = {05215128-1771-4B71-9860-3703162B541B}
 		{22444662-1567-442B-9A38-7F55CEB9DE28} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
+		{F76141AA-F359-4FEB-A7B9-C32C30E680A0} = {610E085E-462C-4E0D-9879-6D6C0BDA1E65}
+		{0149E953-4187-47AB-BED4-62BDF6348A2B} = {610E085E-462C-4E0D-9879-6D6C0BDA1E65}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {397F2541-42DD-474F-AE9D-4CF4D8610823}

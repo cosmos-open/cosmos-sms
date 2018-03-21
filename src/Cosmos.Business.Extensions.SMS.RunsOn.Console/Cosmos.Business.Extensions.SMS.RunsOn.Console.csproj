@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <AssemblyName>Cosmos.Business.Extensions.SMS.RunsOn.Console</AssemblyName>
+    <PackageId>Cosmos.Business.Extensions.SMS.RunsOn.Console</PackageId>
+    <Description>The base library for integrating console for Cosmos.Business.Extensions.SMS.</Description>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AspectCore.Core" Version="0.3.1" />
+    <PackageReference Include="AspectCore.Extensions.DependencyInjection" Version="0.3.1" />
+  </ItemGroup>
+</Project>
