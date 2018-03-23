@@ -1,4 +1,6 @@
 # Cosmos.Business.Extensions.SMS
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcosmos-open%2FSMS.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcosmos-open%2FSMS?ref=badge_shield)
+
 
 短信业务组件，隶属于 [COSMOS LOOPS PROGRAMME](https://github.com/CosmosLoops)，为 Open Cosmos 计划的一部分。
 
@@ -24,3 +26,6 @@ Cosmos.Business.Extensions.SMS 支持的服务商：
 * * *
 
 [MIT](https://mit-license.org/)
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcosmos-open%2FSMS.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcosmos-open%2FSMS?ref=badge_large)
