@@ -10,7 +10,7 @@
 
         public string Region { get; set; } = "Beijing";
 
-        public bool Https { get; set; }
+        public bool Security { get; set; }
 
         public int RetryTimes { get; set; } = 3;
     }

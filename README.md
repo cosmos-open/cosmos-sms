@@ -13,7 +13,7 @@ Cosmos.Business.Extensions.SMS 支持的服务商：
 + [x] [融云](http://www.rongcloud.cn/)
 + [x] [螺丝帽](https://luosimao.com/)
 + [x] [容联云通讯](http://www.yuntongxun.com/)
-+ [ ] [互亿无线](http://www.ihuyi.com/  )
++ [x] [互亿无线](http://www.ihuyi.com/  )
 + [ ] [聚合数据](https://www.juhe.cn/)
 + [ ] [华信短信平台](http://www.ipyy.com/)
 + [x] [创蓝](https://www.253.com/)

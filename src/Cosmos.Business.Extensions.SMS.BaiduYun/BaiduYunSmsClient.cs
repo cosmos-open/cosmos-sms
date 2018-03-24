@@ -48,7 +48,6 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun {
 
         public async Task<BaiduYunSmsResult> SendCodeAsync(BaiduYunCode code) {
 
-
             if (code == null) throw new ArgumentNullException(nameof(code));
             if (string.IsNullOrWhiteSpace(_account.AccessKeyId)) throw new ArgumentNullException(nameof(_account.AccessKeyId));
             if (string.IsNullOrWhiteSpace(_account.SecretAccessKey)) throw new ArgumentNullException(nameof(_account.SecretAccessKey));
@@ -86,7 +85,7 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun {
         }
 
         private static string GetHttpPrefix(BaiduYunConfig config) {
-            if (config == null || !config.Https) {
+            if (config == null || !config.Security) {
                 return "http";
             }
 
