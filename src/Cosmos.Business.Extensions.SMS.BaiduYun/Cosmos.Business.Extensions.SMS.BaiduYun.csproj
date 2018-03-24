@@ -17,8 +17,4 @@
     <PackageReference Include="Laojiu.WebApiClient" Version="1.1.6" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Configuration" />
-    <Folder Include="Models\Results" />
-  </ItemGroup>
 </Project>

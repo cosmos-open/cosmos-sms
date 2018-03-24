@@ -8,7 +8,7 @@ Cosmos.Business.Extensions.SMS 支持的服务商：
 
 + [x] [阿里云 SMS](https://www.aliyun.com/product/sms)
 + [x] [腾讯云 SMS](https://cloud.tencent.com/product/sms)
-+ [ ] [百度云](https://cloud.baidu.com/)
++ [x] [百度云](https://cloud.baidu.com/)
 + [x] [云片](https://www.yunpian.com/)
 + [x] [融云](http://www.rongcloud.cn/)
 + [x] [螺丝帽](https://luosimao.com/)
