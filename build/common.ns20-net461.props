@@ -1,0 +1,20 @@
+<Project>
+
+	<Import Project="version.props" />
+
+	<PropertyGroup Label="Build">
+		<TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+	</PropertyGroup>
+
+	<PropertyGroup Label="Package">
+        <Product>Cosmos.Business.Extensions.SMS</Product>
+        <Authors>AlexLEWIS;dotnetcore;StarrySky;Cosmos</Authors>
+        <RepositoryUrl>https://github.com/cosmos-open/SMS</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://github.com/cosmos-open/SMS</PackageProjectUrl>
+        <PackageIconUrl>https://avatars2.githubusercontent.com/u/26578961?s=200</PackageIconUrl>
+        <PackageLicenseUrl>http://www.opensource.org/licenses/mit-license.php</PackageLicenseUrl>
+        <PackageTags>StarrySky;Cosmos;Business;SMS</PackageTags>
+	</PropertyGroup>
+
+</Project>

@@ -80,6 +80,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{49F45A2C-372E-467A-935D-43D24973229B}"
 ProjectSection(SolutionItems) = preProject
 	README.md = README.md
+	build\common.net461-net451.props = build\common.net461-net451.props
+	build\common.net461.props = build\common.net461.props
+	build\common.ns20-net451.props = build\common.ns20-net451.props
+	build\common.ns20-net461-net451.props = build\common.ns20-net461-net451.props
+	build\common.ns20-net461.props = build\common.ns20-net461.props
+	build\common.ns20.props = build\common.ns20.props
+	build\version.props = build\version.props
 EndProjectSection
 EndProject
 Global
