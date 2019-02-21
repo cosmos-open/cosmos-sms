@@ -1,7 +1,8 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results {
+namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results
+{
     /// <summary>
     /// Called failure item
     /// documentation:
@@ -9,7 +10,8 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results {
     /// reference to:
     ///     https://github.com/LonghronShen/SendCloudSDK/blob/netstandard2.0/src/SendCloudSDK/Models/Results/SmsSendFailureItem.cs
     /// </summary>
-    public class CalledFailureItem {
+    public class CalledFailureItem
+    {
         [JsonProperty("phone")]
         public string Phone { get; set; }
 

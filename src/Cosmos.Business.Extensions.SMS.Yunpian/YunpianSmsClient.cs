@@ -7,14 +7,17 @@ using Cosmos.Business.Extensions.SMS.Yunpian.Models;
 using Yunpian.Sdk;
 using Yunpian.Sdk.Model;
 
-namespace Cosmos.Business.Extensions.SMS.Yunpian {
-    public class YunpianSmsClient : IDisposable {
+namespace Cosmos.Business.Extensions.SMS.Yunpian
+{
+    public class YunpianSmsClient : IDisposable
+    {
         private readonly YunpianConfig _config;
         private readonly YunpianAccount _yunpianAccount;
         private YunpianClient _proxy { get; set; }
         private readonly Action<Exception> _exceptionHandler;
 
-        public YunpianSmsClient(YunpianConfig config, Action<Exception> exceptionHandler = null) {
+        public YunpianSmsClient(YunpianConfig config, Action<Exception> exceptionHandler = null)
+        {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _yunpianAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
             _proxy = new YunpianClient(_yunpianAccount.ApiKey).Init();
@@ -24,7 +27,8 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian {
             _exceptionHandler = globalHandle;
         }
 
-        public Task<Result<SmsBatchSend>> SendAsync(YunpianSmsMessage message) {
+        public Task<Result<SmsBatchSend>> SendAsync(YunpianSmsMessage message)
+        {
             if (message == null) throw new ArgumentNullException(nameof(message));
             if (string.IsNullOrWhiteSpace(_yunpianAccount.ApiKey)) throw new ArgumentNullException(nameof(_yunpianAccount.ApiKey));
 
@@ -46,7 +50,8 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian {
             return Task.FromResult(response);
         }
 
-        public Task<Result<SmsSingleSend>> SendCodeAsync(YunpianSmsCode code) {
+        public Task<Result<SmsSingleSend>> SendCodeAsync(YunpianSmsCode code)
+        {
             if (code == null) throw new ArgumentNullException(nameof(code));
             if (string.IsNullOrWhiteSpace(_yunpianAccount.ApiKey)) throw new ArgumentNullException(nameof(_yunpianAccount.ApiKey));
 
@@ -74,7 +79,8 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian {
             return Task.FromResult(response);
         }
 
-        public void Dispose() {
+        public void Dispose()
+        {
             _proxy?.Dispose();
         }
     }

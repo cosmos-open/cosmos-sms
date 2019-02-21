@@ -6,27 +6,33 @@ using System.Threading.Tasks;
 using Cosmos.Business.Extensions.SMS.Core.SmsImplements;
 using Cosmos.Business.Extensions.SMS.Events;
 
-namespace Cosmos.Business.Extensions.SMS.Core.Aggregation {
-    public class DefaultSmsAggregationSender : ISmsAggregationSender {
+namespace Cosmos.Business.Extensions.SMS.Core.Aggregation
+{
+    public class DefaultSmsAggregationSender : ISmsAggregationSender
+    {
         private readonly ISmsImplementRoller _roller;
 
-        public DefaultSmsAggregationSender(ISmsImplementRoller implementRoller) {
+        public DefaultSmsAggregationSender(ISmsImplementRoller implementRoller)
+        {
             _roller = implementRoller ?? throw new ArgumentNullException(nameof(implementRoller));
         }
 
-        public async Task SendAsync(SmsSendEvent sendEvent, CancellationToken cancellationToken = default(CancellationToken)) {
+        public async Task SendAsync(SmsSendEvent sendEvent, CancellationToken cancellationToken = default(CancellationToken))
+        {
             //todo 根据 more info 获得优先实现名单（如果没有名单，则从注册清单中获得实现名单）
 
             //todo 根据实现名单、约束规则和 send event 自身属性，获得最佳实现名单
             List<string> finalServiceNames = new List<string>();
 
-            if (finalServiceNames == null || !finalServiceNames.Any()) {
+            if (finalServiceNames == null || !finalServiceNames.Any())
+            {
                 //todo log error info 
                 return;
             }
 
             //todo 如果最佳实现名单只有一个实现，直接调用 
-            if (finalServiceNames.Count == 1) {
+            if (finalServiceNames.Count == 1)
+            {
                 //todo get implement func from implement manager by name
                 return;
             }

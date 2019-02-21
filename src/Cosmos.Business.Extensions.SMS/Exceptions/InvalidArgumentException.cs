@@ -1,8 +1,11 @@
 ﻿using System;
 
-namespace Cosmos.Business.Extensions.SMS.Exceptions {
-    public class InvalidArgumentException : Exception, ISmsException {
-        public InvalidArgumentException(string message, string serviceName, int errorCode) : base(message) {
+namespace Cosmos.Business.Extensions.SMS.Exceptions
+{
+    public class InvalidArgumentException : Exception, ISmsException
+    {
+        public InvalidArgumentException(string message, string serviceName, int errorCode) : base(message)
+        {
             ErrorCode = errorCode;
             ServiceName = serviceName;
         }

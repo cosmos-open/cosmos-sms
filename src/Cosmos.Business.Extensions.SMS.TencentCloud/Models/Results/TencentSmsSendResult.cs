@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Cosmos.Business.Extensions.SMS.TencentCloud.Models.Results {
-    public class TencentSmsSendResult {
+namespace Cosmos.Business.Extensions.SMS.TencentCloud.Models.Results
+{
+    public class TencentSmsSendResult
+    {
         public int Result { get; set; }
         public string ErrMsg { get; set; }
         public string Sid { get; set; }
@@ -11,7 +13,8 @@ namespace Cosmos.Business.Extensions.SMS.TencentCloud.Models.Results {
         public string NationCode { get; set; }
     }
 
-    public class TencentSmsSendResponseData {
+    public class TencentSmsSendResponseData
+    {
         private int _feeInternal { get; set; }
         private string _sidInternal { get; set; }
 

@@ -88,7 +88,7 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 bizParams.Add("uid", message.Uid);
             }
 
-            _proxy.ApiConfig.HttpHost = new Uri(_config.UseMarketingSms?_chuangLanMarketingAccount.ApiUrl:_chuangLanCodeAccount.ApiUrl);
+            _proxy.ApiConfig.HttpHost = new Uri(_config.UseMarketingSms ? _chuangLanMarketingAccount.ApiUrl : _chuangLanCodeAccount.ApiUrl);
             return await _proxy.SendMessageAsync(bizParams)
                 .Retry(_config.RetryTimes)
                 .Handle().WhenCatch<Exception>(e =>
@@ -100,7 +100,7 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
 
         public async Task<VariableResponseData> SendVariableAsync(ChuangLanSmsVariableMessage message)
         {
-            if(message == null)
+            if (message == null)
             {
                 throw new ArgumentNullException(nameof(message));
             }
@@ -184,9 +184,9 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 bizParams.Add("sendtime", code.SendTime.Value.ToString("yyyyMMddHHmm"));
             }
 
-            if (code.Report.HasValue&&code.Report.Value)
+            if (code.Report.HasValue && code.Report.Value)
             {
-                bizParams.Add("report","true");                
+                bizParams.Add("report", "true");
             }
 
             if (!string.IsNullOrWhiteSpace(code.Extend))
@@ -196,10 +196,10 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
 
             if (!string.IsNullOrWhiteSpace(code.Uid))
             {
-                bizParams.Add("uid",code.Uid);
+                bizParams.Add("uid", code.Uid);
             }
 
-            _proxy.ApiConfig.HttpHost =new Uri(_chuangLanCodeAccount.ApiUrl);
+            _proxy.ApiConfig.HttpHost = new Uri(_chuangLanCodeAccount.ApiUrl);
             return await _proxy.SendCodeAsync(bizParams)
                 .Retry(_config.RetryTimes)
                 .Handle().WhenCatch<Exception>(e =>

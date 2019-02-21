@@ -27,7 +27,8 @@ using System.Text;
 using Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions;
 using Cosmos.Encryption;
 
-namespace Cosmos.Business.Extensions.SMS.Aliyun.Core.Helpers {
+namespace Cosmos.Business.Extensions.SMS.Aliyun.Core.Helpers
+{
     /// <summary>
     /// Signature helper
     /// documentation:
@@ -35,11 +36,16 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Core.Helpers {
     /// reference to:
     ///     https://github.com/yaosansi/aliyun-openapi-sdk-lite/blob/master/SignatureHelper.cs
     /// </summary>
-    public static class SignatureHelper {
-        public static string GetApiSignature(IDictionary<string, string> coll, string key) {
-            var orgin = "POST&%2F&" +
-                        PercentEncode(string.Join("&", coll.OrderBy(x => x.Key, StringComparer.Ordinal).Select(x => $"{PercentEncode(x.Key)}={PercentEncode(x.Value)}")));
-            var sign = HMACSHA1HashingProvider.Signature(orgin, key + "&", Encoding.UTF8);
+    public static class SignatureHelper
+    {
+        // ReSharper disable once InconsistentNaming
+        private const string PERCENT_ENCODE_TEXT = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~";
+
+        public static string GetApiSignature(IDictionary<string, string> coll, string key)
+        {
+            var origin = coll.GetOrigin();
+
+            var sign = origin.Signature(key);
 
             // hex string to byte array
             var buffer = sign.HexToBytes();
@@ -48,16 +54,35 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun.Core.Helpers {
             return Convert.ToBase64String(buffer);
         }
 
-        private static string PercentEncode(string value) {
+        private static string GetOrigin(this IDictionary<string, string> coll)
+        {
+            return $"POST&%2F&{PercentEncode(string.Join("&", coll.OrderBy(x => x.Key, StringComparer.Ordinal).Select(x => $"{PercentEncode(x.Key)}={PercentEncode(x.Value)}")))}";
+        }
+
+        private static string Signature(this string orgin, string key)
+        {
+            return HMACSHA1HashingProvider.Signature(orgin, $"{key}&", Encoding.UTF8);
+        }
+
+        private static string PercentEncode(string value)
+        {
             var stringBuilder = new StringBuilder();
-            var text = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.~";
+
             var bytes = Encoding.UTF8.GetBytes(value);
-            foreach (char c in bytes) {
-                if (text.IndexOf(c) >= 0) {
+
+            foreach (var b in bytes)
+            {
+                var c = (char)b;
+
+                if (PERCENT_ENCODE_TEXT.IndexOf(c) >= 0)
+                {
                     stringBuilder.Append(c);
-                } else {
-                    stringBuilder.Append("%").Append(
-                        string.Format(CultureInfo.InvariantCulture, "{0:X2}", (int) c));
+                }
+                else
+                {
+                    stringBuilder
+                        .Append("%")
+                        .Append(string.Format(CultureInfo.InvariantCulture, "{0:X2}", (int)c));
                 }
             }
 

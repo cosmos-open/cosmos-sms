@@ -13,7 +13,7 @@ namespace Cosmos.Business.Extensions.SMS.TencentCloud.Models {
         public void CheckParameters() {
             var phoneCount = PhoneNumbers?.Count;
             if (phoneCount == 0) {
-                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
+                throw new InvalidArgumentException("收信人为空", TencentSmsConstants.ServiceName, 401);
             }
         }
     }

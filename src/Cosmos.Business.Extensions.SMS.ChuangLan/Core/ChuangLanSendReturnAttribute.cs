@@ -8,7 +8,7 @@ using WebApiClient.Contexts;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Core
 {
-    public class ChuangLanSendReturnAttribute:JsonReturnAttribute
+    public class ChuangLanSendReturnAttribute : JsonReturnAttribute
     {
         protected override async Task<object> GetTaskResult(ApiActionContext context)
         {

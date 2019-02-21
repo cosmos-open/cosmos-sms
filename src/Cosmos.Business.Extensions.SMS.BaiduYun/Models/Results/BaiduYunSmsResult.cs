@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Cosmos.Business.Extensions.SMS.BaiduYun.Models.Results {
-    public class BaiduYunSmsResult {
+namespace Cosmos.Business.Extensions.SMS.BaiduYun.Models.Results
+{
+    public class BaiduYunSmsResult
+    {
         /// <summary>
         /// 返回码
         /// </summary>

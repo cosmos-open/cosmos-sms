@@ -1,8 +1,10 @@
 ﻿using System.Collections.Generic;
 using Cosmos.Business.Extensions.SMS.Events.Restrict;
 
-namespace Cosmos.Business.Extensions.SMS.Weimi.Core {
-    public class WeimiSmsRestrict : SmsSendRestrictTemplate {
+namespace Cosmos.Business.Extensions.SMS.Weimi.Core
+{
+    public class WeimiSmsRestrict : SmsSendRestrictTemplate
+    {
         private static readonly WeimiSmsRestrict _selfCache = new WeimiSmsRestrict();
         public static WeimiSmsRestrict Instance => _selfCache;
 

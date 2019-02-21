@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 
-namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results {
+namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results
+{
     /// <summary>
     /// Api called result
     /// documentation:
@@ -8,7 +9,8 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results {
     /// reference to:
     ///     https://github.com/LonghronShen/SendCloudSDK/blob/netstandard2.0/src/SendCloudSDK/Models/Results/SendSmsResult.cs
     /// </summary>
-    public class SmsCalledResult {
+    public class SmsCalledResult
+    {
         [JsonProperty("successCount")]
         public int SuccessCount { get; set; }
 

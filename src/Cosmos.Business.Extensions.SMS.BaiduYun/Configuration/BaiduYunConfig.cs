@@ -1,6 +1,9 @@
-﻿namespace Cosmos.Business.Extensions.SMS.BaiduYun.Configuration {
-    public class BaiduYunConfig : IConfig {
+﻿namespace Cosmos.Business.Extensions.SMS.BaiduYun.Configuration
+{
+    public class BaiduYunConfig : IConfig
+    {
         public BaiduYunAccount Account { get; set; }
+
         public int TimeOut { get; set; } = 60000;
 
         /// <summary>

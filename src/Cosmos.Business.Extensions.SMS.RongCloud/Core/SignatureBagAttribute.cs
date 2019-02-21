@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Cosmos.Business.Extensions.SMS.RongCloud.Models;
+using WebApiClient;
 using WebApiClient.Contexts;
-using WebApiClient.Interfaces;
 
-namespace Cosmos.Business.Extensions.SMS.RongCloud.Core {
+namespace Cosmos.Business.Extensions.SMS.RongCloud.Core
+{
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
-    public class SignatureBagAttribute : Attribute, IApiParameterAttribute {
-        public Task BeforeRequestAsync(ApiActionContext context, ApiParameterDescriptor parameter) {
+    public class SignatureBagAttribute : Attribute, IApiParameterAttribute
+    {
+        public Task BeforeRequestAsync(ApiActionContext context, ApiParameterDescriptor parameter)
+        {
 
-            if (parameter.Value is RongCloudSignatureBag bag) {
+            if (parameter.Value is RongCloudSignatureBag bag)
+            {
                 context.RequestMessage.Headers.TryAddWithoutValidation("App-Key", bag.AppKey);
                 context.RequestMessage.Headers.TryAddWithoutValidation("Nonce", bag.Nonce);
                 context.RequestMessage.Headers.TryAddWithoutValidation("Timestamp", bag.Timestamp);

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.Yuntongxun.Configuration;
@@ -9,15 +8,18 @@ using Cosmos.Business.Extensions.SMS.Yuntongxun.Models;
 using Cosmos.Business.Extensions.SMS.Yuntongxun.Models.Results;
 using WebApiClient;
 
-namespace Cosmos.Business.Extensions.SMS.Yuntongxun {
-    public class YuntongxunSmsClient {
+namespace Cosmos.Business.Extensions.SMS.Yuntongxun
+{
+    public class YuntongxunSmsClient
+    {
 
         private readonly YuntongxunSmsConfig _config;
         private readonly YuntongxunAccount _yuntongxunAccount;
         private readonly ICloopenApis _proxy;
         private readonly Action<Exception> _exceptionHandler;
 
-        public YuntongxunSmsClient(YuntongxunSmsConfig config, Action<Exception> exceptionHandler = null) {
+        public YuntongxunSmsClient(YuntongxunSmsConfig config, Action<Exception> exceptionHandler = null)
+        {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _yuntongxunAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
 
@@ -30,7 +32,8 @@ namespace Cosmos.Business.Extensions.SMS.Yuntongxun {
             _exceptionHandler = globalHandle;
         }
 
-        public async Task<YuntongxunSmsResult> SendAsync(YuntongxunMessage message) {
+        public async Task<YuntongxunSmsResult> SendAsync(YuntongxunMessage message)
+        {
 
             if (message == null) throw new ArgumentNullException(nameof(message));
             if (string.IsNullOrWhiteSpace(_yuntongxunAccount.AccountSid)) throw new ArgumentNullException(nameof(_yuntongxunAccount.AccountSid));
@@ -47,14 +50,16 @@ namespace Cosmos.Business.Extensions.SMS.Yuntongxun {
 
             return await _proxy.SendAsync(urlSegment, sigTuple.auth, bizParams)
                 .Retry(_config.RetryTimes)
-                .Handle().WhenCatch<Exception>(e => {
+                .Handle().WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
 
-        public async Task<YuntongxunSmsResult> SendCodeAsync(YuntongxunCode code) {
+        public async Task<YuntongxunSmsResult> SendCodeAsync(YuntongxunCode code)
+        {
             if (code == null) throw new ArgumentNullException(nameof(code));
             if (string.IsNullOrWhiteSpace(_yuntongxunAccount.AccountSid)) throw new ArgumentNullException(nameof(_yuntongxunAccount.AccountSid));
             if (string.IsNullOrWhiteSpace(_yuntongxunAccount.AccountToken)) throw new ArgumentNullException(nameof(_yuntongxunAccount.AccountToken));
@@ -70,14 +75,16 @@ namespace Cosmos.Business.Extensions.SMS.Yuntongxun {
 
             return await _proxy.SendAsync(urlSegment, sigTuple.auth, bizParams)
                 .Retry(_config.RetryTimes)
-                .Handle().WhenCatch<Exception>(e => {
+                .Handle().WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
         private static YuntongxunSmsResult ReturnAsDefautlResponse()
-            => new YuntongxunSmsResult {
+            => new YuntongxunSmsResult
+            {
                 statusCode = "500",
                 statusMsg = "解析错误，返回默认结果"
             };

@@ -9,14 +9,17 @@ using Cosmos.Business.Extensions.SMS.Huyi.Models;
 using Cosmos.Business.Extensions.SMS.Huyi.Models.Results;
 using WebApiClient;
 
-namespace Cosmos.Business.Extensions.SMS.Huyi {
-    public class HuyiClient {
+namespace Cosmos.Business.Extensions.SMS.Huyi
+{
+    public class HuyiClient
+    {
         private readonly HuyiConfig _config;
         private readonly HuyiAccount _account;
         private readonly IHuyiApis _proxy;
         private readonly Action<Exception> _exceptionHandler;
 
-        public HuyiClient(HuyiConfig config, Action<Exception> exceptionHandler = null) {
+        public HuyiClient(HuyiConfig config, Action<Exception> exceptionHandler = null)
+        {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _account = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
 
@@ -27,7 +30,8 @@ namespace Cosmos.Business.Extensions.SMS.Huyi {
             _exceptionHandler = globalHandle;
         }
 
-        public async Task<HuyiResult> SendAsync(HuyiMessage message) {
+        public async Task<HuyiResult> SendAsync(HuyiMessage message)
+        {
             if (message == null) throw new ArgumentNullException(nameof(message));
             if (string.IsNullOrWhiteSpace(_account.ApiKey)) throw new ArgumentNullException(nameof(_account.ApiKey));
             if (string.IsNullOrWhiteSpace(_account.AppId)) throw new ArgumentNullException(nameof(_account.AppId));
@@ -45,14 +49,16 @@ namespace Cosmos.Business.Extensions.SMS.Huyi {
 
             return await _proxy.SendAsync(content)
                 .Retry(_config.RetryTimes)
-                .Handle().WhenCatch<Exception>(e => {
+                .Handle().WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
         private static HuyiResult ReturnAsDefautlResponse()
-            => new HuyiResult {
+            => new HuyiResult
+            {
                 Code = 500,
                 Message = "解析错误，返回默认结果"
             };

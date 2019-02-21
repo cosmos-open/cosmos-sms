@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 
-namespace Cosmos.Business.Extensions.SMS.Events {
-    public class SmsSendEventMoreInfo {
+namespace Cosmos.Business.Extensions.SMS.Events
+{
+    public class SmsSendEventMoreInfo
+    {
         public string NationCode { get; set; } = "86";
         public List<string> SmsServiceNames { get; set; }
         internal List<string> LowLevelSmsServiceNames { get; set; }

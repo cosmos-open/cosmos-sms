@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using Cosmos.Business.Extensions.SMS.ChuangLan.Core.Extensions;
+﻿using Cosmos.Business.Extensions.SMS.ChuangLan.Core.Extensions;
 using Newtonsoft.Json;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models.Results
@@ -17,11 +14,6 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models.Results
         [JsonProperty("errorMsg")]
         public string ErrorMsg { get; set; }
 
-        
-
-        public string ToJsonString()
-        {
-            return this.ToJson();
-        }
+        public string ToJsonString() => this.ToJson();
     }
 }
