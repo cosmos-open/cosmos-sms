@@ -2,7 +2,7 @@
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fcosmos-open%2FSMS.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fcosmos-open%2FSMS?ref=badge_shield)
 
-SMS business components, belongs to [COSMOS LOOPS PROGRAMME](https://github.com/CosmosLoops)，a part of _Open Cosmos Project_.
+SMS business components, belongs to [COSMOS LOOPS PROGRAMME](https://github.com/cosmos-loops)，a part of _[Open Cosmos Project](https://github.com/cosmos-open)_.
 
 The following service providers are supported by **Cosmos.Business.Extensions.SMS**:
 
