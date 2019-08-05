@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7F2B51E5-EF3E-499C-8794-BC85233D854E}"
 EndProject
@@ -15,75 +15,77 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.ChuangLan", "src\Cosmos.Business.Extensions.SMS.ChuangLan\Cosmos.Business.Extensions.SMS.ChuangLan.csproj", "{1E327F59-F426-466A-989B-95C8A6B220AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.ChuangLan.Tests", "tests\Cosmos.Business.Extensions.SMS.ChuangLan.Tests\Cosmos.Business.Extensions.SMS.ChuangLan.Tests.csproj", "{8808C9CB-E2E1-49FA-9399-696EEA8B4418}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.ChuangLan.Tests", "tests\Cosmos.Business.Extensions.SMS.ChuangLan.Tests\Cosmos.Business.Extensions.SMS.ChuangLan.Tests.csproj", "{8808C9CB-E2E1-49FA-9399-696EEA8B4418}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Aliyun", "src\Cosmos.Business.Extensions.SMS.Aliyun\Cosmos.Business.Extensions.SMS.Aliyun.csproj", "{2B4E0E72-1229-449D-8F0C-01320ABF5479}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Aliyun", "src\Cosmos.Business.Extensions.SMS.Aliyun\Cosmos.Business.Extensions.SMS.Aliyun.csproj", "{2B4E0E72-1229-449D-8F0C-01320ABF5479}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.BaiduYun", "src\Cosmos.Business.Extensions.SMS.BaiduYun\Cosmos.Business.Extensions.SMS.BaiduYun.csproj", "{A4B012FB-42EB-41D3-AFA4-B31DBC47C5DC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.BaiduYun", "src\Cosmos.Business.Extensions.SMS.BaiduYun\Cosmos.Business.Extensions.SMS.BaiduYun.csproj", "{A4B012FB-42EB-41D3-AFA4-B31DBC47C5DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Huyi", "src\Cosmos.Business.Extensions.SMS.Huyi\Cosmos.Business.Extensions.SMS.Huyi.csproj", "{69DB1363-3891-4590-8B54-858B7A148A0E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Huyi", "src\Cosmos.Business.Extensions.SMS.Huyi\Cosmos.Business.Extensions.SMS.Huyi.csproj", "{69DB1363-3891-4590-8B54-858B7A148A0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Juhe", "src\Cosmos.Business.Extensions.SMS.Juhe\Cosmos.Business.Extensions.SMS.Juhe.csproj", "{5E10A226-5418-40CA-B02D-95FD38DBE940}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Juhe", "src\Cosmos.Business.Extensions.SMS.Juhe\Cosmos.Business.Extensions.SMS.Juhe.csproj", "{5E10A226-5418-40CA-B02D-95FD38DBE940}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Luosimao", "src\Cosmos.Business.Extensions.SMS.Luosimao\Cosmos.Business.Extensions.SMS.Luosimao.csproj", "{B3D01BB0-4588-48F1-B74E-1A2CED6398A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Luosimao", "src\Cosmos.Business.Extensions.SMS.Luosimao\Cosmos.Business.Extensions.SMS.Luosimao.csproj", "{B3D01BB0-4588-48F1-B74E-1A2CED6398A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.TencentCloud", "src\Cosmos.Business.Extensions.SMS.TencentCloud\Cosmos.Business.Extensions.SMS.TencentCloud.csproj", "{74C0C795-8D04-428A-BB1D-4A1F918FC87D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.TencentCloud", "src\Cosmos.Business.Extensions.SMS.TencentCloud\Cosmos.Business.Extensions.SMS.TencentCloud.csproj", "{74C0C795-8D04-428A-BB1D-4A1F918FC87D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.RongCloud", "src\Cosmos.Business.Extensions.SMS.RongCloud\Cosmos.Business.Extensions.SMS.RongCloud.csproj", "{42EA0040-BCD2-4228-B443-0B5387DEE3E8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.RongCloud", "src\Cosmos.Business.Extensions.SMS.RongCloud\Cosmos.Business.Extensions.SMS.RongCloud.csproj", "{42EA0040-BCD2-4228-B443-0B5387DEE3E8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.SubMail", "src\Cosmos.Business.Extensions.SMS.SubMail\Cosmos.Business.Extensions.SMS.SubMail.csproj", "{2513FC3A-AFEA-4436-8067-F969D6DF7BD2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.SubMail", "src\Cosmos.Business.Extensions.SMS.SubMail\Cosmos.Business.Extensions.SMS.SubMail.csproj", "{2513FC3A-AFEA-4436-8067-F969D6DF7BD2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Yunpian", "src\Cosmos.Business.Extensions.SMS.Yunpian\Cosmos.Business.Extensions.SMS.Yunpian.csproj", "{1A5EE1C5-7FFC-40E9-865E-3759BBA9EA9A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Yunpian", "src\Cosmos.Business.Extensions.SMS.Yunpian\Cosmos.Business.Extensions.SMS.Yunpian.csproj", "{1A5EE1C5-7FFC-40E9-865E-3759BBA9EA9A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Twilio", "src\Cosmos.Business.Extensions.SMS.Twilio\Cosmos.Business.Extensions.SMS.Twilio.csproj", "{BA830AE8-2B2B-471D-87E7-192E1D065B8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Twilio", "src\Cosmos.Business.Extensions.SMS.Twilio\Cosmos.Business.Extensions.SMS.Twilio.csproj", "{BA830AE8-2B2B-471D-87E7-192E1D065B8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Yuntongxun", "src\Cosmos.Business.Extensions.SMS.Yuntongxun\Cosmos.Business.Extensions.SMS.Yuntongxun.csproj", "{FDCDE1AA-3B2A-430D-B152-5728C1142FB3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Yuntongxun", "src\Cosmos.Business.Extensions.SMS.Yuntongxun\Cosmos.Business.Extensions.SMS.Yuntongxun.csproj", "{FDCDE1AA-3B2A-430D-B152-5728C1142FB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Weimi", "src\Cosmos.Business.Extensions.SMS.Weimi\Cosmos.Business.Extensions.SMS.Weimi.csproj", "{43834C9B-D4F2-4956-B215-6BDCDF6D262A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Weimi", "src\Cosmos.Business.Extensions.SMS.Weimi\Cosmos.Business.Extensions.SMS.Weimi.csproj", "{43834C9B-D4F2-4956-B215-6BDCDF6D262A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Aliyun.Tests", "tests\Cosmos.Business.Extensions.SMS.Aliyun.Tests\Cosmos.Business.Extensions.SMS.Aliyun.Tests.csproj", "{8F5A207F-F8AA-46CE-9674-2DC13C17F0B2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Aliyun.Tests", "tests\Cosmos.Business.Extensions.SMS.Aliyun.Tests\Cosmos.Business.Extensions.SMS.Aliyun.Tests.csproj", "{8F5A207F-F8AA-46CE-9674-2DC13C17F0B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.BaiduYun.Tests", "tests\Cosmos.Business.Extensions.SMS.BaiduYun.Tests\Cosmos.Business.Extensions.SMS.BaiduYun.Tests.csproj", "{B1492B03-2D0B-4061-8D75-3808A694B05C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.BaiduYun.Tests", "tests\Cosmos.Business.Extensions.SMS.BaiduYun.Tests\Cosmos.Business.Extensions.SMS.BaiduYun.Tests.csproj", "{B1492B03-2D0B-4061-8D75-3808A694B05C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Huyi.Tests", "tests\Cosmos.Business.Extensions.SMS.Huyi.Tests\Cosmos.Business.Extensions.SMS.Huyi.Tests.csproj", "{2326CEBA-DCBE-4107-9557-0E2FD2B8FCE3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Huyi.Tests", "tests\Cosmos.Business.Extensions.SMS.Huyi.Tests\Cosmos.Business.Extensions.SMS.Huyi.Tests.csproj", "{2326CEBA-DCBE-4107-9557-0E2FD2B8FCE3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Juhe.Tests", "tests\Cosmos.Business.Extensions.SMS.Juhe.Tests\Cosmos.Business.Extensions.SMS.Juhe.Tests.csproj", "{4970A2B3-A282-4846-B0A4-7F13A700C2D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Juhe.Tests", "tests\Cosmos.Business.Extensions.SMS.Juhe.Tests\Cosmos.Business.Extensions.SMS.Juhe.Tests.csproj", "{4970A2B3-A282-4846-B0A4-7F13A700C2D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Luosimao.Tests", "tests\Cosmos.Business.Extensions.SMS.Luosimao.Tests\Cosmos.Business.Extensions.SMS.Luosimao.Tests.csproj", "{B2DB3B35-14D6-4A5B-A599-AA4E84A47BD4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Luosimao.Tests", "tests\Cosmos.Business.Extensions.SMS.Luosimao.Tests\Cosmos.Business.Extensions.SMS.Luosimao.Tests.csproj", "{B2DB3B35-14D6-4A5B-A599-AA4E84A47BD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.RongCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.RongCloud.Tests\Cosmos.Business.Extensions.SMS.RongCloud.Tests.csproj", "{14DDD740-B5F1-44A0-A84F-51A8E30CC68D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.RongCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.RongCloud.Tests\Cosmos.Business.Extensions.SMS.RongCloud.Tests.csproj", "{14DDD740-B5F1-44A0-A84F-51A8E30CC68D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.SubMail.Tests", "tests\Cosmos.Business.Extensions.SMS.SubMail.Tests\Cosmos.Business.Extensions.SMS.SubMail.Tests.csproj", "{D651EBBB-F085-4BE7-B93C-D620B97A058A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.SubMail.Tests", "tests\Cosmos.Business.Extensions.SMS.SubMail.Tests\Cosmos.Business.Extensions.SMS.SubMail.Tests.csproj", "{D651EBBB-F085-4BE7-B93C-D620B97A058A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.TencentCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.TencentCloud.Tests\Cosmos.Business.Extensions.SMS.TencentCloud.Tests.csproj", "{D15715AE-C716-453F-A70E-28C8B1E83488}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.TencentCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.TencentCloud.Tests\Cosmos.Business.Extensions.SMS.TencentCloud.Tests.csproj", "{D15715AE-C716-453F-A70E-28C8B1E83488}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Twilio.Tests", "tests\Cosmos.Business.Extensions.SMS.Twilio.Tests\Cosmos.Business.Extensions.SMS.Twilio.Tests.csproj", "{62197484-0A1D-479C-A888-2605D5FFBCBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Twilio.Tests", "tests\Cosmos.Business.Extensions.SMS.Twilio.Tests\Cosmos.Business.Extensions.SMS.Twilio.Tests.csproj", "{62197484-0A1D-479C-A888-2605D5FFBCBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Weimi.Tests", "tests\Cosmos.Business.Extensions.SMS.Weimi.Tests\Cosmos.Business.Extensions.SMS.Weimi.Tests.csproj", "{EC6ECF87-FF1B-4C12-8AC0-EB0B2749271A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Weimi.Tests", "tests\Cosmos.Business.Extensions.SMS.Weimi.Tests\Cosmos.Business.Extensions.SMS.Weimi.Tests.csproj", "{EC6ECF87-FF1B-4C12-8AC0-EB0B2749271A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Yunpian.Tests", "tests\Cosmos.Business.Extensions.SMS.Yunpian.Tests\Cosmos.Business.Extensions.SMS.Yunpian.Tests.csproj", "{9C7C09E3-63D9-48C5-B19E-BCC7C8A08739}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Yunpian.Tests", "tests\Cosmos.Business.Extensions.SMS.Yunpian.Tests\Cosmos.Business.Extensions.SMS.Yunpian.Tests.csproj", "{9C7C09E3-63D9-48C5-B19E-BCC7C8A08739}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.Yuntongxun.Tests", "tests\Cosmos.Business.Extensions.SMS.Yuntongxun.Tests\Cosmos.Business.Extensions.SMS.Yuntongxun.Tests.csproj", "{2F1AD515-6948-4916-9AE1-3052DB966B00}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.Yuntongxun.Tests", "tests\Cosmos.Business.Extensions.SMS.Yuntongxun.Tests\Cosmos.Business.Extensions.SMS.Yuntongxun.Tests.csproj", "{2F1AD515-6948-4916-9AE1-3052DB966B00}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RunsOn", "RunsOn", "{610E085E-462C-4E0D-9879-6D6C0BDA1E65}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sinks", "Sinks", "{05215128-1771-4B71-9860-3703162B541B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore", "src\Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore\Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore.csproj", "{F76141AA-F359-4FEB-A7B9-C32C30E680A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore", "src\Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore\Cosmos.Business.Extensions.SMS.RunsOn.AspNetCore.csproj", "{F76141AA-F359-4FEB-A7B9-C32C30E680A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.RunsOn.Console", "src\Cosmos.Business.Extensions.SMS.RunsOn.Console\Cosmos.Business.Extensions.SMS.RunsOn.Console.csproj", "{0149E953-4187-47AB-BED4-62BDF6348A2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cosmos.Business.Extensions.SMS.RunsOn.Console", "src\Cosmos.Business.Extensions.SMS.RunsOn.Console\Cosmos.Business.Extensions.SMS.RunsOn.Console.csproj", "{0149E953-4187-47AB-BED4-62BDF6348A2B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution Folder", "{49F45A2C-372E-467A-935D-43D24973229B}"
-ProjectSection(SolutionItems) = preProject
-	README.md = README.md
-	build\common.net461-net451.props = build\common.net461-net451.props
-	build\common.net461.props = build\common.net461.props
-	build\common.ns20-net451.props = build\common.ns20-net451.props
-	build\common.ns20-net461-net451.props = build\common.ns20-net461-net451.props
-	build\common.ns20-net461.props = build\common.ns20-net461.props
-	build\common.ns20.props = build\common.ns20.props
-	build\version.props = build\version.props
-EndProjectSection
+	ProjectSection(SolutionItems) = preProject
+		build\common.net461-net451.props = build\common.net461-net451.props
+		build\common.net461.props = build\common.net461.props
+		build\common.ns20-net451.props = build\common.ns20-net451.props
+		build\common.ns20-net461-net451.props = build\common.ns20-net461-net451.props
+		build\common.ns20-net461.props = build\common.ns20-net461.props
+		build\common.ns20.props = build\common.ns20.props
+		README.md = README.md
+		build\version.props = build\version.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.KingsoftCloud", "src\Cosmos.Business.Extensions.SMS.KingsoftCloud\Cosmos.Business.Extensions.SMS.KingsoftCloud.csproj", "{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -215,13 +217,32 @@ Global
 		{0149E953-4187-47AB-BED4-62BDF6348A2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0149E953-4187-47AB-BED4-62BDF6348A2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0149E953-4187-47AB-BED4-62BDF6348A2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{22444662-1567-442B-9A38-7F55CEB9DE28} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
+		{A760680F-8FFE-45BB-95DA-0EC5B59048BF} = {05215128-1771-4B71-9860-3703162B541B}
 		{FB05BDF2-9CD1-4871-A3D6-2FB346AFD5E8} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
+		{1E327F59-F426-466A-989B-95C8A6B220AD} = {05215128-1771-4B71-9860-3703162B541B}
 		{8808C9CB-E2E1-49FA-9399-696EEA8B4418} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
+		{2B4E0E72-1229-449D-8F0C-01320ABF5479} = {05215128-1771-4B71-9860-3703162B541B}
+		{A4B012FB-42EB-41D3-AFA4-B31DBC47C5DC} = {05215128-1771-4B71-9860-3703162B541B}
+		{69DB1363-3891-4590-8B54-858B7A148A0E} = {05215128-1771-4B71-9860-3703162B541B}
+		{5E10A226-5418-40CA-B02D-95FD38DBE940} = {05215128-1771-4B71-9860-3703162B541B}
+		{B3D01BB0-4588-48F1-B74E-1A2CED6398A7} = {05215128-1771-4B71-9860-3703162B541B}
+		{74C0C795-8D04-428A-BB1D-4A1F918FC87D} = {05215128-1771-4B71-9860-3703162B541B}
+		{42EA0040-BCD2-4228-B443-0B5387DEE3E8} = {05215128-1771-4B71-9860-3703162B541B}
+		{2513FC3A-AFEA-4436-8067-F969D6DF7BD2} = {05215128-1771-4B71-9860-3703162B541B}
+		{1A5EE1C5-7FFC-40E9-865E-3759BBA9EA9A} = {05215128-1771-4B71-9860-3703162B541B}
+		{BA830AE8-2B2B-471D-87E7-192E1D065B8D} = {05215128-1771-4B71-9860-3703162B541B}
+		{FDCDE1AA-3B2A-430D-B152-5728C1142FB3} = {05215128-1771-4B71-9860-3703162B541B}
+		{43834C9B-D4F2-4956-B215-6BDCDF6D262A} = {05215128-1771-4B71-9860-3703162B541B}
 		{8F5A207F-F8AA-46CE-9674-2DC13C17F0B2} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
 		{B1492B03-2D0B-4061-8D75-3808A694B05C} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
 		{2326CEBA-DCBE-4107-9557-0E2FD2B8FCE3} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
@@ -236,23 +257,9 @@ Global
 		{2F1AD515-6948-4916-9AE1-3052DB966B00} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
 		{610E085E-462C-4E0D-9879-6D6C0BDA1E65} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
 		{05215128-1771-4B71-9860-3703162B541B} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
-		{2B4E0E72-1229-449D-8F0C-01320ABF5479} = {05215128-1771-4B71-9860-3703162B541B}
-		{A4B012FB-42EB-41D3-AFA4-B31DBC47C5DC} = {05215128-1771-4B71-9860-3703162B541B}
-		{1E327F59-F426-466A-989B-95C8A6B220AD} = {05215128-1771-4B71-9860-3703162B541B}
-		{69DB1363-3891-4590-8B54-858B7A148A0E} = {05215128-1771-4B71-9860-3703162B541B}
-		{5E10A226-5418-40CA-B02D-95FD38DBE940} = {05215128-1771-4B71-9860-3703162B541B}
-		{B3D01BB0-4588-48F1-B74E-1A2CED6398A7} = {05215128-1771-4B71-9860-3703162B541B}
-		{42EA0040-BCD2-4228-B443-0B5387DEE3E8} = {05215128-1771-4B71-9860-3703162B541B}
-		{A760680F-8FFE-45BB-95DA-0EC5B59048BF} = {05215128-1771-4B71-9860-3703162B541B}
-		{2513FC3A-AFEA-4436-8067-F969D6DF7BD2} = {05215128-1771-4B71-9860-3703162B541B}
-		{74C0C795-8D04-428A-BB1D-4A1F918FC87D} = {05215128-1771-4B71-9860-3703162B541B}
-		{BA830AE8-2B2B-471D-87E7-192E1D065B8D} = {05215128-1771-4B71-9860-3703162B541B}
-		{43834C9B-D4F2-4956-B215-6BDCDF6D262A} = {05215128-1771-4B71-9860-3703162B541B}
-		{1A5EE1C5-7FFC-40E9-865E-3759BBA9EA9A} = {05215128-1771-4B71-9860-3703162B541B}
-		{FDCDE1AA-3B2A-430D-B152-5728C1142FB3} = {05215128-1771-4B71-9860-3703162B541B}
-		{22444662-1567-442B-9A38-7F55CEB9DE28} = {7F2B51E5-EF3E-499C-8794-BC85233D854E}
 		{F76141AA-F359-4FEB-A7B9-C32C30E680A0} = {610E085E-462C-4E0D-9879-6D6C0BDA1E65}
 		{0149E953-4187-47AB-BED4-62BDF6348A2B} = {610E085E-462C-4E0D-9879-6D6C0BDA1E65}
+		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE} = {05215128-1771-4B71-9860-3703162B541B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {397F2541-42DD-474F-AE9D-4CF4D8610823}
