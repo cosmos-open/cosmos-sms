@@ -3,7 +3,6 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using WebApiClient;
 using WebApiClient.Contexts;
-using WebApiClient.Interfaces;
 
 namespace Cosmos.Business.Extensions.SMS.Yuntongxun.Core {
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
@@ -26,7 +25,7 @@ namespace Cosmos.Business.Extensions.SMS.Yuntongxun.Core {
                     return relative;
                 }
 
-                throw new HttpApiConfigException($"未配置HttpHost，无法应用路径{relative}");
+            } else {
             } else {
                 if (relative == null) {
                     return baseUri;

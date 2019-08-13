@@ -7,15 +7,18 @@ using Cosmos.Business.Extensions.SMS.BaiduYun.Models.Results;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using WebApiClient;
 
-namespace Cosmos.Business.Extensions.SMS.BaiduYun {
-    public class BaiduYunSmsClient {
+namespace Cosmos.Business.Extensions.SMS.BaiduYun
+{
+    public class BaiduYunSmsClient
+    {
         private readonly BaiduYunConfig _config;
         private readonly BaiduYunAccount _account;
         private readonly IBaiduYunSmsApis _proxy;
         private readonly string _apiServerUrl;
         private readonly Action<Exception> _exceptionHandler;
 
-        public BaiduYunSmsClient(BaiduYunConfig config, Action<Exception> exceptionHandler = null) {
+        public BaiduYunSmsClient(BaiduYunConfig config, Action<Exception> exceptionHandler = null)
+        {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _account = _config.Account ?? throw new ArgumentNullException(nameof(_config.Account));
             _apiServerUrl = $"{GetHttpPrefix(config)}://{GetApiServerUrl(config)}";
@@ -26,7 +29,8 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun {
             _exceptionHandler = globalHandle;
         }
 
-        public async Task<BaiduYunSmsResult> SendAsync(BaiduYunMessage message) {
+        public async Task<BaiduYunSmsResult> SendAsync(BaiduYunMessage message)
+        {
 
             if (message == null) throw new ArgumentNullException(nameof(message));
             if (string.IsNullOrWhiteSpace(_account.AccessKeyId)) throw new ArgumentNullException(nameof(_account.AccessKeyId));
@@ -36,17 +40,19 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun {
             message.CheckParameters();
 
             var bizParams = message.ToSendObject(_config);
-            var bceWrapper = new BceObjectWrapper(new BceObject(_config), message, _config) {ApiServerUrl = _apiServerUrl};
+            var bceWrapper = new BceObjectWrapper(new BceObject(_config), message, _config) { ApiServerUrl = _apiServerUrl };
 
             return await _proxy.SendAsync(bceWrapper, bizParams)
                 .Retry(_config.RetryTimes)
-                .Handle().WhenCatch<Exception>(e => {
+                .Handle().WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
-        public async Task<BaiduYunSmsResult> SendCodeAsync(BaiduYunCode code) {
+        public async Task<BaiduYunSmsResult> SendCodeAsync(BaiduYunCode code)
+        {
 
             if (code == null) throw new ArgumentNullException(nameof(code));
             if (string.IsNullOrWhiteSpace(_account.AccessKeyId)) throw new ArgumentNullException(nameof(_account.AccessKeyId));
@@ -59,33 +65,39 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun {
                 code.Vars.Add(code.CodeKey, code.Code);
 
             var bizParams = code.ToSendObject(_config);
-            var bceWrapper = new BceObjectWrapper(new BceObject(_config), code, _config) {ApiServerUrl = _apiServerUrl};
+            var bceWrapper = new BceObjectWrapper(new BceObject(_config), code, _config) { ApiServerUrl = _apiServerUrl };
 
             return await _proxy.SendAsync(bceWrapper, bizParams)
                 .Retry(_config.RetryTimes)
-                .Handle().WhenCatch<Exception>(e => {
+                .Handle().WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
         private static BaiduYunSmsResult ReturnAsDefautlResponse()
-            => new BaiduYunSmsResult {
+            => new BaiduYunSmsResult
+            {
                 Code = 500,
                 Message = "解析错误，返回默认结果"
             };
 
 
-        private static string GetApiServerUrl(BaiduYunConfig config) {
-            if (config == null || string.Compare(config.Region, "Beijing", StringComparison.OrdinalIgnoreCase) == 0) {
+        private static string GetApiServerUrl(BaiduYunConfig config)
+        {
+            if (config == null || string.Compare(config.Region, "Beijing", StringComparison.OrdinalIgnoreCase) == 0)
+            {
                 return BaiduYunApiUrls.BeijingService;
             }
 
             return BaiduYunApiUrls.GuangzhouService;
         }
 
-        private static string GetHttpPrefix(BaiduYunConfig config) {
-            if (config == null || !config.Security) {
+        private static string GetHttpPrefix(BaiduYunConfig config)
+        {
+            if (config == null || !config.Security)
+            {
                 return "http";
             }
 

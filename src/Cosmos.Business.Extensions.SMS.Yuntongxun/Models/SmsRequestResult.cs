@@ -1,5 +1,7 @@
-﻿namespace Cosmos.Business.Extensions.SMS.Yuntongxun.Models {
-    public enum SmsRequestResult {
+﻿namespace Cosmos.Business.Extensions.SMS.Yuntongxun.Models
+{
+    public enum SmsRequestResult
+    {
         Success = 0,
         EmptyMainAccountId = 172006,
         EmptyMainAccountToken = 172007,

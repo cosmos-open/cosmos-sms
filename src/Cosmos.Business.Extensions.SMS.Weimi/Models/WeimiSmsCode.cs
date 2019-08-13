@@ -3,8 +3,10 @@ using System.Linq;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.Weimi.Core;
 
-namespace Cosmos.Business.Extensions.SMS.Weimi.Models {
-    public class WeimiSmsCode {
+namespace Cosmos.Business.Extensions.SMS.Weimi.Models
+{
+    public class WeimiSmsCode
+    {
 
         public string TemplateId { get; set; }
 
@@ -18,17 +20,21 @@ namespace Cosmos.Business.Extensions.SMS.Weimi.Models {
 
         public string Timing { get; set; }
 
-        public void CheckParameters() {
-            if (TemplateId == null) {
+        public void CheckParameters()
+        {
+            if (TemplateId == null)
+            {
                 throw new InvalidArgumentException("模版为空", Constants.ServiceName, 401);
             }
 
             var phoneCount = PhoneNumbers?.Count;
-            if (phoneCount == 0) {
+            if (phoneCount == 0)
+            {
                 throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
             }
 
-            if (phoneCount > Core.Constants.MaxReceivers) {
+            if (phoneCount > Core.Constants.MaxReceivers)
+            {
                 throw new InvalidArgumentException("收信人超过限制", Constants.ServiceName, 401);
             }
         }

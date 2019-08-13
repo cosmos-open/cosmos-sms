@@ -13,7 +13,7 @@
     <ProjectReference Include="..\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Laojiu.WebApiClient" Version="1.1.6" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.1" />
+    <PackageReference Include="Laojiu.WebApiClient" Version="1.2.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
   </ItemGroup>
 </Project>

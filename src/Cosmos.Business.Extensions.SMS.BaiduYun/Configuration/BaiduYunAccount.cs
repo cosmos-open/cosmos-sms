@@ -1,6 +1,9 @@
-﻿namespace Cosmos.Business.Extensions.SMS.BaiduYun.Configuration {
-    public class BaiduYunAccount : IAccountSettings {
+﻿namespace Cosmos.Business.Extensions.SMS.BaiduYun.Configuration
+{
+    public class BaiduYunAccount : IAccountSettings
+    {
         public string AccessKeyId { get; set; }
+
         public string SecretAccessKey { get; set; }
 
         /// <summary>

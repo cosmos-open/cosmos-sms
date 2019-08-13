@@ -1,8 +1,10 @@
 ﻿using Cosmos.Business.Extensions.SMS.SendCloud.Core.Extensions;
 using Newtonsoft.Json;
 
-namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results {
-    public class ResponseData<TData> {
+namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results
+{
+    public class ResponseData<TData>
+    {
         [JsonProperty("result")]
         public bool Result { get; set; }
 
@@ -15,7 +17,8 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Models.Results {
         [JsonProperty("info")]
         public TData Info { get; set; }
 
-        public string ToJsonString() {
+        public string ToJsonString()
+        {
             return this.ToJson();
         }
     }

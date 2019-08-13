@@ -3,8 +3,10 @@ using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.SendCloud.Core;
 using Cosmos.Business.Extensions.SMS.SendCloud.Core.Extensions;
 
-namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
-    public class SendCloudSmsMessage {
+namespace Cosmos.Business.Extensions.SMS.SendCloud.Models
+{
+    public class SendCloudSmsMessage
+    {
 
         public int? TemplateId { get; set; }
 
@@ -18,18 +20,22 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Models {
 
         public string GetVarsString() => Vars.ToJson();
 
-        public void CheckParameters() {
-            if (TemplateId == null) {
-                throw new InvalidArgumentException("模版为空", Constants.ServiceName, 401);
+        public void CheckParameters()
+        {
+            if (TemplateId == null)
+            {
+                throw new InvalidArgumentException("模版为空", SendCloudConstants.ServiceName, 401);
             }
 
             var phoneCount = Phone?.Count;
-            if (phoneCount == 0) {
-                throw new InvalidArgumentException("收信人为空", Constants.ServiceName, 401);
+            if (phoneCount == 0)
+            {
+                throw new InvalidArgumentException("收信人为空", SendCloudConstants.ServiceName, 401);
             }
 
-            if (phoneCount > Core.Constants.MaxReceivers) {
-                throw new InvalidArgumentException("收信人超过限制", Constants.ServiceName, 401);
+            if (phoneCount > Core.SendCloudConstants.MaxReceivers)
+            {
+                throw new InvalidArgumentException("收信人超过限制", SendCloudConstants.ServiceName, 401);
             }
         }
     }

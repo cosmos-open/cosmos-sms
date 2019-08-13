@@ -13,6 +13,6 @@
     <ProjectReference Include="..\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="qcloud.qcloudsms_csharp" Version="0.1.3" />
+    <PackageReference Include="qcloud.qcloudsms_csharp" Version="0.1.6" />
   </ItemGroup>
 </Project>

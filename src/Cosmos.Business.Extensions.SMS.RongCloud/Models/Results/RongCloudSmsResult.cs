@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Cosmos.Business.Extensions.SMS.RongCloud.Models.Results {
-    public class RongCloudSmsResult {
+namespace Cosmos.Business.Extensions.SMS.RongCloud.Models.Results
+{
+    public class RongCloudSmsResult
+    {
         // 返回码，200 为正常。
         [JsonProperty("code")]
         public int Code { get; set; }

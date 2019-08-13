@@ -1,7 +1,9 @@
 ﻿using Newtonsoft.Json;
 
-namespace Cosmos.Business.Extensions.SMS.Huyi.Models.Results {
-    public class HuyiResult {
+namespace Cosmos.Business.Extensions.SMS.Huyi.Models.Results
+{
+    public class HuyiResult
+    {
         [JsonProperty("code")]
         public int Code { get; set; }
 

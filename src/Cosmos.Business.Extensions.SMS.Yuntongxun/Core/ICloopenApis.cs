@@ -2,8 +2,10 @@
 using WebApiClient;
 using WebApiClient.Attributes;
 
-namespace Cosmos.Business.Extensions.SMS.Yuntongxun.Core {
-    public interface ICloopenApis : IHttpApiClient {
+namespace Cosmos.Business.Extensions.SMS.Yuntongxun.Core
+{
+    public interface ICloopenApis : IHttpApiClient
+    {
         [HttpPost]
         [JsonReturn]
         [AppendHttpHeader]

@@ -1,5 +1,7 @@
-﻿namespace Cosmos.Business.Extensions.SMS.ChuangLan.Configuration {
-    public class ChuangLanConfig : IConfig {
+﻿namespace Cosmos.Business.Extensions.SMS.ChuangLan.Configuration
+{
+    public class ChuangLanConfig : IConfig
+    {
         public ChuangLanAccount CodeAccount { get; set; }
 
         public ChuangLanAccount MarketingAccount { get; set; }

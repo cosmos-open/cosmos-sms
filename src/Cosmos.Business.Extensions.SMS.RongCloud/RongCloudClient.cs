@@ -9,14 +9,17 @@ using Cosmos.Business.Extensions.SMS.RongCloud.Models;
 using Cosmos.Business.Extensions.SMS.RongCloud.Models.Results;
 using WebApiClient;
 
-namespace Cosmos.Business.Extensions.SMS.RongCloud {
-    public class RongCloudClient {
+namespace Cosmos.Business.Extensions.SMS.RongCloud
+{
+    public class RongCloudClient
+    {
         private readonly RongCloudConfig _config;
         private readonly RongCloudAccount _rongAccount;
         private readonly IRongCloudSmsApis _proxy;
         private readonly Action<Exception> _exceptionHandler;
 
-        public RongCloudClient(RongCloudConfig config, Action<Exception> exceptionHandler = null) {
+        public RongCloudClient(RongCloudConfig config, Action<Exception> exceptionHandler = null)
+        {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _rongAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
             _proxy = HttpApiClient.Create<IRongCloudSmsApis>();
@@ -26,7 +29,8 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud {
             _exceptionHandler = globalHandle;
         }
 
-        public async Task<RongCloudSmsResult> SendCodeAsync(RongCloudSmsMessage message) {
+        public async Task<RongCloudSmsResult> SendCodeAsync(RongCloudSmsMessage message)
+        {
             if (message == null) throw new ArgumentNullException(nameof(message));
             if (string.IsNullOrWhiteSpace(_rongAccount.AppKey)) throw new ArgumentNullException(nameof(_rongAccount.AppKey));
             if (string.IsNullOrWhiteSpace(_rongAccount.AppSecret)) throw new ArgumentNullException(nameof(_rongAccount.AppSecret));
@@ -39,12 +43,14 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud {
                 {"region", message.Region}
             };
 
-            foreach (var kvp in message.Vars) {
+            foreach (var kvp in message.Vars)
+            {
                 bizParams.Add($"p{kvp.Key}", kvp.Value);
             }
 
             var signatureTuple = SignatureHelper.GenerateSignature(_rongAccount.AppSecret);
-            var signatureBag = new RongCloudSignatureBag {
+            var signatureBag = new RongCloudSignatureBag
+            {
                 AppKey = _rongAccount.AppKey,
                 Nonce = signatureTuple.nonce,
                 Signature = signatureTuple.signature,
@@ -55,14 +61,16 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud {
 
             return await _proxy.SendSmsAsync(signatureBag, content)
                 .Retry(_config.RetryTimes)
-                .Handle().WhenCatch<Exception>(e => {
+                .Handle().WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
         private static RongCloudSmsResult ReturnAsDefautlResponse()
-            => new RongCloudSmsResult {
+            => new RongCloudSmsResult
+            {
                 Code = 500,
                 ErrorMessage = "解析错误，返回默认结果"
             };

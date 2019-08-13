@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 using Cosmos.Business.Extensions.SMS.ChuangLan.Models.Results;
 using Cosmos.Business.Extensions.SMS.Exceptions;
@@ -10,11 +8,12 @@ using WebApiClient.Contexts;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Core
 {
-    public class ChuangLanSendVariableReturnAttribute:JsonReturnAttribute
+    public class ChuangLanSendVariableReturnAttribute : JsonReturnAttribute
     {
         protected override async Task<object> GetTaskResult(ApiActionContext context)
         {
             var response = context.ResponseMessage;
+
             var s = await response.Content.ReadAsStringAsync();
 
             try

@@ -3,16 +3,16 @@ using System.Linq;
 using System.Text;
 using Cosmos.Encryption;
 
-namespace Cosmos.Business.Extensions.SMS.SendCloud.Core.Helpers {
+namespace Cosmos.Business.Extensions.SMS.SendCloud.Core.Helpers
+{
     /// <summary>
     /// SMS Signature helper
     /// documentation: http://sendcloud.sohu.com/doc/sms/#api
     /// </summary>
-    public static class SignatureHelper {
-        public static string GetApiSignature(IDictionary<string, string> coll, string key) {
-            var orgin = key + "&" + string.Join("&", coll.Select(x => $"{x.Key}={x.Value}")) + "&" + key;
-            return MD5HashingProvider.Signature(orgin);
-        }
+    public static class SignatureHelper
+    {
+        public static string GetApiSignature(IDictionary<string, string> coll, string key)
+            => MD5HashingProvider.Signature($"{key}&{string.Join("&", coll.Select(x => $"{x.Key}={x.Value}"))}&{key}");
 
         /// <summary>
         /// To varify signature
@@ -23,8 +23,7 @@ namespace Cosmos.Business.Extensions.SMS.SendCloud.Core.Helpers {
         /// <param name="timestamp"></param>
         /// <param name="signature"></param>
         /// <returns></returns>
-        public static bool HookVerify(string key, string token, long timestamp, string signature) {
-            return HMACSHA256HashingProvider.Verify(signature, $"{timestamp}{token}", key, Encoding.UTF8);
-        }
+        public static bool HookVerify(string key, string token, long timestamp, string signature)
+            => HMACSHA256HashingProvider.Verify(signature, $"{timestamp}{token}", key, Encoding.UTF8);
     }
 }

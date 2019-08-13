@@ -2,17 +2,22 @@
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.BaiduYun.Core.Extensions;
 using Cosmos.Business.Extensions.SMS.BaiduYun.Models;
 using Cosmos.Encryption;
+using WebApiClient;
 using WebApiClient.Contexts;
-using WebApiClient.Interfaces;
 
-namespace Cosmos.Business.Extensions.SMS.BaiduYun.Core {
+namespace Cosmos.Business.Extensions.SMS.BaiduYun.Core
+{
     [AttributeUsage(AttributeTargets.Parameter, AllowMultiple = false, Inherited = true)]
-    public class BceAttribute : Attribute, IApiParameterAttribute {
-        public Task BeforeRequestAsync(ApiActionContext context, ApiParameterDescriptor parameter) {
+    public class BceAttribute : Attribute, IApiParameterAttribute
+    {
+        public Task BeforeRequestAsync(ApiActionContext context, ApiParameterDescriptor parameter)
+        {
 
-            if (parameter.Value is BceObjectWrapper wrapper) {
+            if (parameter.Value is BceObjectWrapper wrapper)
+            {
                 var date = DateTime.UtcNow;
                 var canonicalRequest = $"POST\n/{WebUtility.UrlEncode(wrapper.UrlSegment)}\n\nhost:{WebUtility.UrlEncode(wrapper.ApiServerUrl)}";
                 //var canonicalRequest = $"POST\n/{(wrapper.UrlSegment)}\n\nhost:{(wrapper.ApiServerUrl)}";

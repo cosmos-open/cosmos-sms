@@ -1,5 +1,7 @@
-﻿namespace Cosmos.Business.Extensions.SMS.Configuration {
-    public interface ISmsSinkOptions {
-        
+﻿namespace Cosmos.Business.Extensions.SMS.Configuration
+{
+    public interface ISmsSinkOptions
+    {
+
     }
 }
