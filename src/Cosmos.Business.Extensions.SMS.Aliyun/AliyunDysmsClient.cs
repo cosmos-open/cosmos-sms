@@ -8,30 +8,32 @@ using Cosmos.Business.Extensions.SMS.Aliyun.Core.Extensions;
 using Cosmos.Business.Extensions.SMS.Aliyun.Core.Helpers;
 using Cosmos.Business.Extensions.SMS.Aliyun.Models;
 using Cosmos.Business.Extensions.SMS.Aliyun.Models.Results;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using WebApiClient;
 
-namespace Cosmos.Business.Extensions.SMS.Aliyun {
-    public class AliyunDysmsClient {
+namespace Cosmos.Business.Extensions.SMS.Aliyun
+{
+    public class AliyunDysmsClient : SmsClientBase
+    {
         private readonly AliyunDysmsConfig _config;
         private readonly AliyunDysmsAccount _aliyunDysmsAccount;
         private readonly IAliyunDysmsApi _proxy;
         private readonly Action<Exception> _exceptionHandler;
 
-        public AliyunDysmsClient(AliyunDysmsConfig config, Action<Exception> exceptionHandler = null) {
+        public AliyunDysmsClient(AliyunDysmsConfig config, Action<Exception> exceptionHandler = null)
+        {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _aliyunDysmsAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
-
-            _proxy = config.Security
-                ? HttpApiClient.Create<IAliyunDysmsApi>("https://dysmsapi.aliyuncs.com")
-                : HttpApiClient.Create<IAliyunDysmsApi>("http://dysmsapi.aliyuncs.com");
+            _proxy = WebApiClientCreator.Create(config);
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
             _exceptionHandler = globalHandle;
         }
 
-        public async Task<AliyunDysmsResult> SendAsync(AliyunDysmsMessage message) {
+        public async Task<AliyunDysmsResult> SendAsync(AliyunDysmsMessage message)
+        {
             if (message == null) throw new ArgumentNullException(nameof(message));
             if (string.IsNullOrWhiteSpace(_aliyunDysmsAccount.AccessKeyId)) throw new ArgumentNullException(nameof(_aliyunDysmsAccount.AccessKeyId));
             if (string.IsNullOrWhiteSpace(_aliyunDysmsAccount.AccessKeySecret)) throw new ArgumentNullException(nameof(_aliyunDysmsAccount.AccessKeySecret));
@@ -41,7 +43,8 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun {
 
             message.CheckParameters();
 
-            var bizParams = new Dictionary<string, string> {
+            var bizParams = new Dictionary<string, string>
+            {
                 {"RegionId", "cn-hangzhou"},
                 {"Action", "SendSms"},
                 {"Version", "2017-05-25"},
@@ -70,13 +73,15 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun {
             return await _proxy.SendMessageAsync(content)
                 .Retry(_config.RetryTimes)
                 .Handle()
-                .WhenCatch<Exception>(e => {
+                .WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
-        public async Task<AliyunDysmsResult> SendCodeAsync(AliyunDysmsCode code) {
+        public async Task<AliyunDysmsResult> SendCodeAsync(AliyunDysmsCode code)
+        {
             if (code == null) throw new ArgumentNullException(nameof(code));
             if (string.IsNullOrWhiteSpace(_aliyunDysmsAccount.AccessKeyId)) throw new ArgumentNullException(nameof(_aliyunDysmsAccount.AccessKeyId));
             if (string.IsNullOrWhiteSpace(_aliyunDysmsAccount.AccessKeySecret)) throw new ArgumentNullException(nameof(_aliyunDysmsAccount.AccessKeySecret));
@@ -86,7 +91,8 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun {
 
             code.CheckParameters();
 
-            var bizParams = new Dictionary<string, string> {
+            var bizParams = new Dictionary<string, string>
+            {
                 {"RegionId", "cn-hangzhou"},
                 {"Action", "SendSms"},
                 {"Version", "2017-05-25"},
@@ -113,18 +119,22 @@ namespace Cosmos.Business.Extensions.SMS.Aliyun {
             return await _proxy.SendCodeAsync(content)
                 .Retry(_config.RetryTimes)
                 .Handle()
-                .WhenCatch<Exception>(e => {
+                .WhenCatch<Exception>(e =>
+                {
                     _exceptionHandler?.Invoke(e);
                     return ReturnAsDefautlResponse();
                 });
         }
 
         private static AliyunDysmsResult ReturnAsDefautlResponse()
-            => new AliyunDysmsResult {
+            => new AliyunDysmsResult
+            {
                 RequestId = "",
                 Code = "500",
                 Message = "解析错误，返回默认结果",
                 BizId = ""
             };
+        
+        public override void CheckMyself() { }
     }
 }

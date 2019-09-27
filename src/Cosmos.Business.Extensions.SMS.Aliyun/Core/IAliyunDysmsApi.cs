@@ -5,7 +5,7 @@ using WebApiClient.Attributes;
 
 namespace Cosmos.Business.Extensions.SMS.Aliyun.Core
 {
-    public interface IAliyunDysmsApi : IHttpApiClient
+    public interface IAliyunDysmsApi : IHttpApi
     {
         [HttpPost]
         [JsonReturn]
