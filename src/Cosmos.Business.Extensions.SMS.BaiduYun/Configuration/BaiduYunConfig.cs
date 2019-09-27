@@ -1,6 +1,6 @@
 ﻿namespace Cosmos.Business.Extensions.SMS.BaiduYun.Configuration
 {
-    public class BaiduYunConfig : IConfig
+    public class BaiduYunConfig : IConfig<BaiduYunAccount>
     {
         public BaiduYunAccount Account { get; set; }
 

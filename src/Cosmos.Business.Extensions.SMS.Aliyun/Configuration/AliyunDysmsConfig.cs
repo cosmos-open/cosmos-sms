@@ -1,6 +1,6 @@
 ﻿namespace Cosmos.Business.Extensions.SMS.Aliyun.Configuration
 {
-    public class AliyunDysmsConfig : IConfig
+    public class AliyunDysmsConfig : IConfig<AliyunDysmsAccount>
     {
         public AliyunDysmsAccount Account { get; set; }
 
@@ -11,5 +11,7 @@
         public bool Security { get; set; }
 
         public int RetryTimes { get; set; } = 3;
+
+        public int TimeOut { get; set; } = 60000;
     }
 }

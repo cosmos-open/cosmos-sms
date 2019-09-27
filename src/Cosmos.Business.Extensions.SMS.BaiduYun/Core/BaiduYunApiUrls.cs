@@ -1,4 +1,4 @@
-﻿namespace Cosmos.Business.Extensions.SMS.BaiduYun
+﻿namespace Cosmos.Business.Extensions.SMS.BaiduYun.Core
 {
     /// <summary>
     /// BaiduYun SMS service's url
@@ -7,7 +7,7 @@
     /// More infomation to see:
     ///     https://cloud.baidu.com/doc/SMS/API.html#SMS.E6.9C.8D.E5.8A.A1.E5.9F.9F.E5.90.8D
     /// </summary>
-    public sealed class BaiduYunApiUrls
+    internal sealed class BaiduYunApiUrls
     {
         public const string BeijingService = "sms.bj.baidubce.com";
 

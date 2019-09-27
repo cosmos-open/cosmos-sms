@@ -20,6 +20,7 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun.Models.Results
         /// 服务生成的流水号
         /// </summary>
         [JsonProperty("requestId")]
+        // ReSharper disable once InconsistentNaming
         public string RequestID { get; set; }
     }
 }
