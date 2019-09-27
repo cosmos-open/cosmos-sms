@@ -2,14 +2,16 @@
 using System.Threading.Tasks;
 using Cosmos.Business.Extensions.SMS.BaiduYun.Configuration;
 using Cosmos.Business.Extensions.SMS.BaiduYun.Core;
+using Cosmos.Business.Extensions.SMS.BaiduYun.Core.Helpers;
 using Cosmos.Business.Extensions.SMS.BaiduYun.Models;
 using Cosmos.Business.Extensions.SMS.BaiduYun.Models.Results;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.BaiduYun
 {
-    public class BaiduYunSmsClient
+    public class BaiduYunSmsClient : SmsClientBase
     {
         private readonly BaiduYunConfig _config;
         private readonly BaiduYunAccount _account;
@@ -21,8 +23,8 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _account = _config.Account ?? throw new ArgumentNullException(nameof(_config.Account));
-            _apiServerUrl = $"{GetHttpPrefix(config)}://{GetApiServerUrl(config)}";
-            _proxy = HttpApiClient.Create<IBaiduYunSmsApis>(_apiServerUrl);
+            _apiServerUrl = ApiAddressHelper.Get(config);
+            _proxy = WebApiClientCreator.Create(_apiServerUrl, _config.TimeOut);
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
@@ -40,14 +42,14 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun
             message.CheckParameters();
 
             var bizParams = message.ToSendObject(_config);
-            var bceWrapper = new BceObjectWrapper(new BceObject(_config), message, _config) { ApiServerUrl = _apiServerUrl };
+            var bceWrapper = new BceObjectWrapper(new BceObject(_config), message, _config) {ApiServerUrl = _apiServerUrl};
 
             return await _proxy.SendAsync(bceWrapper, bizParams)
                 .Retry(_config.RetryTimes)
                 .Handle().WhenCatch<Exception>(e =>
                 {
                     _exceptionHandler?.Invoke(e);
-                    return ReturnAsDefautlResponse();
+                    return ReturnAsDefaultResponse();
                 });
         }
 
@@ -65,43 +67,24 @@ namespace Cosmos.Business.Extensions.SMS.BaiduYun
                 code.Vars.Add(code.CodeKey, code.Code);
 
             var bizParams = code.ToSendObject(_config);
-            var bceWrapper = new BceObjectWrapper(new BceObject(_config), code, _config) { ApiServerUrl = _apiServerUrl };
+            var bceWrapper = new BceObjectWrapper(new BceObject(_config), code, _config) {ApiServerUrl = _apiServerUrl};
 
             return await _proxy.SendAsync(bceWrapper, bizParams)
                 .Retry(_config.RetryTimes)
                 .Handle().WhenCatch<Exception>(e =>
                 {
                     _exceptionHandler?.Invoke(e);
-                    return ReturnAsDefautlResponse();
+                    return ReturnAsDefaultResponse();
                 });
         }
 
-        private static BaiduYunSmsResult ReturnAsDefautlResponse()
+        private static BaiduYunSmsResult ReturnAsDefaultResponse()
             => new BaiduYunSmsResult
             {
                 Code = 500,
                 Message = "解析错误，返回默认结果"
             };
-
-
-        private static string GetApiServerUrl(BaiduYunConfig config)
-        {
-            if (config == null || string.Compare(config.Region, "Beijing", StringComparison.OrdinalIgnoreCase) == 0)
-            {
-                return BaiduYunApiUrls.BeijingService;
-            }
-
-            return BaiduYunApiUrls.GuangzhouService;
-        }
-
-        private static string GetHttpPrefix(BaiduYunConfig config)
-        {
-            if (config == null || !config.Security)
-            {
-                return "http";
-            }
-
-            return "https";
-        }
+        
+        public override void CheckMyself() { }
     }
 }
