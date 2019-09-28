@@ -1,6 +1,6 @@
 ﻿namespace Cosmos.Business.Extensions.SMS.SendCloud.Configuration
 {
-    public class SendCloudConfig : IConfig
+    public class SendCloudConfig : IConfig<SendCloudAccount>
     {
         public SendCloudAccount Account { get; set; }
 

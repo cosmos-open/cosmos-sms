@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.RongCloud.Configuration;
 using Cosmos.Business.Extensions.SMS.RongCloud.Core;
@@ -11,7 +12,7 @@ using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.RongCloud
 {
-    public class RongCloudClient
+    public class RongCloudClient : SmsClientBase
     {
         private readonly RongCloudConfig _config;
         private readonly RongCloudAccount _rongAccount;
@@ -22,7 +23,7 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _rongAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
-            _proxy = HttpApiClient.Create<IRongCloudSmsApis>();
+            _proxy = HttpApi.Create<IRongCloudSmsApis>();
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
@@ -37,7 +38,8 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud
 
             message.CheckParameters();
 
-            var bizParams = new Dictionary<string, string> {
+            var bizParams = new Dictionary<string, string>
+            {
                 {"mobile", message.Mobile},
                 {"templateId", message.TemplateId},
                 {"region", message.Region}
@@ -64,15 +66,17 @@ namespace Cosmos.Business.Extensions.SMS.RongCloud
                 .Handle().WhenCatch<Exception>(e =>
                 {
                     _exceptionHandler?.Invoke(e);
-                    return ReturnAsDefautlResponse();
+                    return ReturnAsDefaultResponse();
                 });
         }
 
-        private static RongCloudSmsResult ReturnAsDefautlResponse()
+        private static RongCloudSmsResult ReturnAsDefaultResponse()
             => new RongCloudSmsResult
             {
                 Code = 500,
                 ErrorMessage = "解析错误，返回默认结果"
             };
+        
+        public override void CheckMyself() { }
     }
 }

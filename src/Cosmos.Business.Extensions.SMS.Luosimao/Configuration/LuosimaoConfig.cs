@@ -1,6 +1,6 @@
 ﻿namespace Cosmos.Business.Extensions.SMS.Luosimao.Configuration
 {
-    public class LuosimaoConfig : IConfig
+    public class LuosimaoConfig : IConfig<LuosimaoAccount>
     {
         public LuosimaoAccount Account { get; set; }
         public string SignName { get; set; }

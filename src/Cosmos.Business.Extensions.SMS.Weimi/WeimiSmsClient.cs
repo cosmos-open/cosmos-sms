@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.Weimi.Configuration;
 using Cosmos.Business.Extensions.SMS.Weimi.Core;
@@ -11,7 +12,7 @@ using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.Weimi
 {
-    public class WeimiSmsClient
+    public class WeimiSmsClient: SmsClientBase
     {
         private readonly WeimiSmsConfig _config;
         private readonly WeimiSmsAccount _weimiSmsAccount;
@@ -24,8 +25,8 @@ namespace Cosmos.Business.Extensions.SMS.Weimi
             _weimiSmsAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
 
             _proxy = config.Security
-                ? HttpApiClient.Create<IWeimiSmsApi>("https://api.weimi.cc")
-                : HttpApiClient.Create<IWeimiSmsApi>("http://api.weimi.cc");
+                ? HttpApi.Create<IWeimiSmsApi>("https://api.weimi.cc")
+                : HttpApi.Create<IWeimiSmsApi>("http://api.weimi.cc");
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
@@ -57,7 +58,7 @@ namespace Cosmos.Business.Extensions.SMS.Weimi
                 .Handle().WhenCatch<Exception>(e =>
                 {
                     _exceptionHandler?.Invoke(e);
-                    return ReturnAsDefautlResponse();
+                    return ReturnAsDefaultResponse();
                 });
         }
 
@@ -86,16 +87,18 @@ namespace Cosmos.Business.Extensions.SMS.Weimi
                 .Handle().WhenCatch<Exception>(e =>
                 {
                     _exceptionHandler?.Invoke(e);
-                    return ReturnAsDefautlResponse();
+                    return ReturnAsDefaultResponse();
                 });
         }
 
 
-        private static WeimiSmsResult ReturnAsDefautlResponse()
+        private static WeimiSmsResult ReturnAsDefaultResponse()
             => new WeimiSmsResult
             {
                 Code = -500,
                 Message = "解析错误，返回默认结果"
             };
+        
+        public override void CheckMyself() { }
     }
 }

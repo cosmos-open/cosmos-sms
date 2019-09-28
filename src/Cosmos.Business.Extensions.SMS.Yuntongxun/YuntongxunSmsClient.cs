@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.Yuntongxun.Configuration;
 using Cosmos.Business.Extensions.SMS.Yuntongxun.Core;
@@ -10,9 +11,8 @@ using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.Yuntongxun
 {
-    public class YuntongxunSmsClient
+    public class YuntongxunSmsClient : SmsClientBase
     {
-
         private readonly YuntongxunSmsConfig _config;
         private readonly YuntongxunAccount _yuntongxunAccount;
         private readonly ICloopenApis _proxy;
@@ -24,8 +24,8 @@ namespace Cosmos.Business.Extensions.SMS.Yuntongxun
             _yuntongxunAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
 
             _proxy = _config.Production
-                ? HttpApiClient.Create<ICloopenApis>("https://app.cloopen.com:8883")
-                : HttpApiClient.Create<ICloopenApis>("https://sandboxapp.cloopen.com:8883");
+                ? HttpApi.Create<ICloopenApis>("https://app.cloopen.com:8883")
+                : HttpApi.Create<ICloopenApis>("https://sandboxapp.cloopen.com:8883");
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
@@ -53,10 +53,9 @@ namespace Cosmos.Business.Extensions.SMS.Yuntongxun
                 .Handle().WhenCatch<Exception>(e =>
                 {
                     _exceptionHandler?.Invoke(e);
-                    return ReturnAsDefautlResponse();
+                    return ReturnAsDefaultResponse();
                 });
         }
-
 
         public async Task<YuntongxunSmsResult> SendCodeAsync(YuntongxunCode code)
         {
@@ -78,15 +77,17 @@ namespace Cosmos.Business.Extensions.SMS.Yuntongxun
                 .Handle().WhenCatch<Exception>(e =>
                 {
                     _exceptionHandler?.Invoke(e);
-                    return ReturnAsDefautlResponse();
+                    return ReturnAsDefaultResponse();
                 });
         }
 
-        private static YuntongxunSmsResult ReturnAsDefautlResponse()
+        private static YuntongxunSmsResult ReturnAsDefaultResponse()
             => new YuntongxunSmsResult
             {
                 statusCode = "500",
                 statusMsg = "解析错误，返回默认结果"
             };
+
+        public override void CheckMyself() { }
     }
 }

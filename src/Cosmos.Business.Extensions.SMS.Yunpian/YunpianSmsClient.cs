@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.Yunpian.Configuration;
 using Cosmos.Business.Extensions.SMS.Yunpian.Models;
@@ -9,7 +10,7 @@ using Yunpian.Sdk.Model;
 
 namespace Cosmos.Business.Extensions.SMS.Yunpian
 {
-    public class YunpianSmsClient : IDisposable
+    public class YunpianSmsClient : SmsClientBase, IDisposable
     {
         private readonly YunpianConfig _config;
         private readonly YunpianAccount _yunpianAccount;
@@ -34,7 +35,8 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian
 
             message.CheckParameters();
 
-            var bizParams = new Dictionary<string, string> {
+            var bizParams = new Dictionary<string, string>
+            {
                 {Const.Mobile, message.GetPhoneString()},
                 {Const.Text, message.Content}
             };
@@ -57,7 +59,8 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian
 
             code.CheckParameters();
 
-            var bizParams = new Dictionary<string, string> {
+            var bizParams = new Dictionary<string, string>
+            {
                 {Const.Mobile, code.PhoneNumber},
                 {Const.Text, code.Content}
             };
@@ -83,5 +86,7 @@ namespace Cosmos.Business.Extensions.SMS.Yunpian
         {
             _proxy?.Dispose();
         }
+
+        public override void CheckMyself() { }
     }
 }
