@@ -2,7 +2,7 @@
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
 {
-    public class ChuangLanSmsBase
+    public class ChuanglanSmsBase
     {
         public DateTime? SendTime { get; set; }
 

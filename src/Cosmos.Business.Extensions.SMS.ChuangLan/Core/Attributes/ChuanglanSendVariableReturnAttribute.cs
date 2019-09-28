@@ -6,13 +6,14 @@ using Newtonsoft.Json.Linq;
 using WebApiClient.Attributes;
 using WebApiClient.Contexts;
 
-namespace Cosmos.Business.Extensions.SMS.ChuangLan.Core
+namespace Cosmos.Business.Extensions.SMS.ChuangLan.Core.Attributes
 {
-    public class ChuangLanSendReturnAttribute : JsonReturnAttribute
+    public class ChuanglanSendVariableReturnAttribute : JsonReturnAttribute
     {
         protected override async Task<object> GetTaskResult(ApiActionContext context)
         {
             var response = context.ResponseMessage;
+
             var s = await response.Content.ReadAsStringAsync();
 
             try
@@ -20,7 +21,7 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Core
                 var json = JObject.Parse(s);
                 if (json.Property("code") != null)
                 {
-                    return json.ToObject<SimpleResponseData>();
+                    return json.ToObject<VariableResponseData>();
                 }
 
                 return new ResponseData()
@@ -34,7 +35,7 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Core
                 ExceptionHandleResolver.ResolveHandler()?.Invoke(e);
             }
 
-            return new SimpleResponseData()
+            return new VariableResponseData()
             {
                 Code = response.StatusCode.ToString(),
                 ErrorMsg = "发送失败",

@@ -12,30 +12,29 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Tests
 {
     public class ChuangLanSmsTest
     {
-        private readonly ChuangLanConfig _config;
-        private readonly ChuangLanClient _client;
+        private readonly ChuanglanConfig _config;
+        private readonly ChuanglanClient _client;
 
         public ChuangLanSmsTest()
         {
             var configuration = new ConfigurationBuilder().SetBasePath(Directory.GetCurrentDirectory())
                 .AddJsonFile("appsettings.json", false, true)
                 .Build();
-            _config = configuration.GetSection("SMS:ChuangLan").Get<ChuangLanConfig>();
-            _client=new ChuangLanClient(_config);
+            _config = configuration.GetSection("SMS:ChuangLan").Get<ChuanglanConfig>();
+            _client=new ChuanglanClient(_config);
         }
 
         [Fact]
         public void ConfigChecking()
         {
             Assert.NotNull(_config);
-            Assert.NotNull(_config.CodeAccount);
-            Assert.NotNull(_config.MarketingAccount);
+            Assert.NotNull(_config.Account);
         }
 
         [Fact]
         public async void SendCodeTest()
         {
-            var code = new ChuangLanSmsCode()
+            var code = new ChuanglanSmsCode()
             {
                 Phone = "",
                 Msg = "3312047"
@@ -47,9 +46,9 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Tests
         [Fact]
         public async void SendTest()
         {
-            var message=new ChuangLanSmsMessage()
+            var message=new ChuanglanSmsMessage()
             {
-                Content = "Ç×°®µÄ»áÔ±£¬ÄúÔÚ03ÔÂ03ÈÕµÄ²âÊÔµêÆÌµÄ·şÎñÏîÄ¿ÒÑ¾­Ô¤Ô¼³É¹¦£¬Çë¹Ø×¢¡¾xxxxx¡¿¹«ÖÚºÅ£¬²é¿´Ô¤Ô¼ÏêÇé¡£",
+                Content = "äº²çˆ±çš„ä¼šå‘˜ï¼Œæ‚¨åœ¨03æœˆ03æ—¥çš„æµ‹è¯•åº—é“ºçš„æœåŠ¡é¡¹ç›®å·²ç»é¢„çº¦æˆåŠŸï¼Œè¯·å…³æ³¨ã€xxxxxã€‘å…¬ä¼—å·ï¼ŒæŸ¥çœ‹é¢„çº¦è¯¦æƒ…ã€‚",
                 PhoneNumbers = new List<string>() { ""}
             };
 
@@ -62,10 +61,10 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Tests
         [Fact]
         public async void SendVariableTest()
         {
-            var message=new ChuangLanSmsVariableMessage()
+            var message=new ChuanglanSmsVariableMessage()
             {
-                Content = "Ç×°®µÄ»áÔ±£¬ÄúÔÚ{$var}ÔÂ{$var}ÈÕ{$var}µÄ·şÎñÏîÄ¿ÒÑ¾­Ô¤Ô¼³É¹¦£¬Çë¹Ø×¢¡¾{$var}¡¿¹«ÖÚºÅ£¬²é¿´Ô¤Ô¼ÏêÇé¡£",
-                Params = new List<string>() { "ÊÖ»úºÅÂë,03,04,²âÊÔµê,¹«ÖÚºÅÃû"}
+                Content = "äº²çˆ±çš„ä¼šå‘˜ï¼Œæ‚¨åœ¨{$var}æœˆ{$var}æ—¥{$var}çš„æœåŠ¡é¡¹ç›®å·²ç»é¢„çº¦æˆåŠŸï¼Œè¯·å…³æ³¨ã€{$var}ã€‘å…¬ä¼—å·ï¼ŒæŸ¥çœ‹é¢„çº¦è¯¦æƒ…ã€‚",
+                Params = new List<string>() { "æ‰‹æœºå·ç ,03,04,æµ‹è¯•åº—,å…¬ä¼—å·å"}
             };
 
             var response = await _client.SendVariableAsync(message);

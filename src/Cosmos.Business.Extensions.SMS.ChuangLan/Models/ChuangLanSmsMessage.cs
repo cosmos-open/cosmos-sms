@@ -4,7 +4,7 @@ using Cosmos.Business.Extensions.SMS.Exceptions;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
 {
-    public class ChuangLanSmsMessage : ChuangLanSmsBase
+    public class ChuanglanSmsMessage : ChuanglanSmsBase
     {
         public List<string> PhoneNumbers { get; set; } = new List<string>();
 
@@ -17,12 +17,12 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
             var phoneCount = PhoneNumbers?.Count;
             if (phoneCount == 0)
             {
-                throw new InvalidArgumentException("收信人为空", ChuangLanConstants.ServiceName, 401);
+                throw new InvalidArgumentException("收信人为空", ChuanglanConstants.ServiceName, 401);
             }
 
             if (string.IsNullOrWhiteSpace(Content))
             {
-                throw new InvalidArgumentException("信息为空", ChuangLanConstants.ServiceName, 401);
+                throw new InvalidArgumentException("信息为空", ChuanglanConstants.ServiceName, 401);
             }
         }
     }

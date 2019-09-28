@@ -3,68 +3,45 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Cosmos.Business.Extensions.SMS.ChuangLan.Configuration;
 using Cosmos.Business.Extensions.SMS.ChuangLan.Core;
+using Cosmos.Business.Extensions.SMS.ChuangLan.Core.Helpers;
 using Cosmos.Business.Extensions.SMS.ChuangLan.Models;
 using Cosmos.Business.Extensions.SMS.ChuangLan.Models.Results;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan
 {
-    public class ChuangLanClient
+    public class ChuanglanClient : SmsClientBase
     {
-        private readonly ChuangLanConfig _config;
-        private readonly ChuangLanAccount _chuangLanCodeAccount;
-        private readonly ChuangLanAccount _chuangLanMarketingAccount;
-        private readonly IChuangLanApi _proxy;
+        private readonly ChuanglanConfig _config;
+        private readonly ChuanglanAccount _chuanglanAccount;
+        private readonly IChuanglanApi _proxy;
         private readonly Action<Exception> _exceptionHandler;
 
-        public ChuangLanClient(ChuangLanConfig config, Action<Exception> exceptionHandler = null)
+        public ChuanglanClient(ChuanglanConfig config, Action<Exception> exceptionHandler = null)
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
-            _chuangLanCodeAccount = config.CodeAccount ?? throw new ArgumentNullException(nameof(config.CodeAccount));
-            if (config.UseMarketingSms)
-            {
-                _chuangLanMarketingAccount = config.MarketingAccount ??
-                                             throw new ArgumentNullException(nameof(config.MarketingAccount));
-            }
-            _proxy = HttpApiClient.Create<IChuangLanApi>();
+            _chuanglanAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
+            _proxy = WebApiClientCreator.Create(config);
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
             _exceptionHandler = globalHandle;
         }
 
-        public async Task<ResponseData> SendAsync(ChuangLanSmsMessage message)
+        public async Task<ResponseData> SendAsync(ChuanglanSmsMessage message)
         {
-            if (message == null)
-            {
-                throw new ArgumentNullException(nameof(message));
-            }
-
-            if (_config.UseMarketingSms)
-            {
-                _chuangLanMarketingAccount.CheckParameters();
-            }
-            else
-            {
-                _chuangLanCodeAccount.CheckParameters();
-            }
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            _chuanglanAccount.CheckParameters();
 
             message.CheckParameters();
 
             var bizParams = new SortedDictionary<string, string>()
             {
-                {
-                    "account",
-                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsUser : _chuangLanCodeAccount.SmsUser
-                },
-                {
-                    "password",
-                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsKey : _chuangLanCodeAccount.SmsKey
-                },
-                {
-                    "msg", message.Content
-                },
+                {"account", _chuanglanAccount.SmsUser},
+                {"password", _chuanglanAccount.SmsKey},
+                {"msg", message.Content},
                 {"phone", message.GetPhoneString()},
             };
 
@@ -88,7 +65,6 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 bizParams.Add("uid", message.Uid);
             }
 
-            _proxy.ApiConfig.HttpHost = new Uri(_config.UseMarketingSms ? _chuangLanMarketingAccount.ApiUrl : _chuangLanCodeAccount.ApiUrl);
             return await _proxy.SendMessageAsync(bizParams)
                 .Retry(_config.RetryTimes)
                 .Handle().WhenCatch<Exception>(e =>
@@ -98,37 +74,18 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 });
         }
 
-        public async Task<VariableResponseData> SendVariableAsync(ChuangLanSmsVariableMessage message)
+        public async Task<VariableResponseData> SendVariableAsync(ChuanglanSmsVariableMessage message)
         {
-            if (message == null)
-            {
-                throw new ArgumentNullException(nameof(message));
-            }
-
-            if (_config.UseMarketingSms)
-            {
-                _chuangLanMarketingAccount.CheckParameters();
-            }
-            else
-            {
-                _chuangLanCodeAccount.CheckParameters();
-            }
+            if (message == null) throw new ArgumentNullException(nameof(message));
+            _chuanglanAccount.CheckParameters();
 
             message.CheckParameters();
 
             var bizParams = new SortedDictionary<string, string>()
             {
-                {
-                    "account",
-                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsUser : _chuangLanCodeAccount.SmsUser
-                },
-                {
-                    "password",
-                    _config.UseMarketingSms ? _chuangLanMarketingAccount.SmsKey : _chuangLanCodeAccount.SmsKey
-                },
-                {
-                    "msg", message.Content
-                },
+                {"account", _chuanglanAccount.SmsUser},
+                {"password", _chuanglanAccount.SmsKey},
+                {"msg", message.Content},
                 {"params", message.GetParamsString()},
             };
 
@@ -152,7 +109,6 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 bizParams.Add("uid", message.Uid);
             }
 
-            _proxy.ApiConfig.HttpHost = new Uri(_config.UseMarketingSms ? _chuangLanMarketingAccount.ApiUrl : _chuangLanCodeAccount.ApiUrl);
             return await _proxy.SendVariableMessageAsync(bizParams)
                 .Retry(_config.RetryTimes)
                 .Handle().WhenCatch<Exception>(e =>
@@ -162,19 +118,20 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 });
         }
 
-        public async Task<ResponseData> SendCodeAsync(ChuangLanSmsCode code)
+        public async Task<ResponseData> SendCodeAsync(ChuanglanSmsCode code)
         {
             if (code == null)
             {
                 throw new ArgumentNullException(nameof(code));
             }
-            _chuangLanCodeAccount.CheckParameters();
+
+            _chuanglanAccount.CheckParameters();
             code.CheckParameters();
 
             var bizParams = new SortedDictionary<string, string>()
             {
-                {"account", _chuangLanCodeAccount.SmsUser},
-                {"password", _chuangLanCodeAccount.SmsKey},
+                {"account", _chuanglanAccount.SmsUser},
+                {"password", _chuanglanAccount.SmsKey},
                 {"msg", code.Msg},
                 {"phone", code.Phone},
             };
@@ -199,7 +156,6 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 bizParams.Add("uid", code.Uid);
             }
 
-            _proxy.ApiConfig.HttpHost = new Uri(_chuangLanCodeAccount.ApiUrl);
             return await _proxy.SendCodeAsync(bizParams)
                 .Retry(_config.RetryTimes)
                 .Handle().WhenCatch<Exception>(e =>
@@ -222,5 +178,7 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan
                 Code = "500",
                 ErrorMsg = "解析错误，返回默认结果"
             };
+        
+        public override void CheckMyself() { }
     }
 }
