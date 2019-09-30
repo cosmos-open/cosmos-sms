@@ -5,7 +5,7 @@ using WebApiClient.Attributes;
 
 namespace Cosmos.Business.Extensions.SMS.KingsoftCloud.Core
 {
-    public interface IKsyunSmsApis : IHttpApiClient
+    public interface IKsyunSmsApis : IHttpApi
     {
         [HttpPost]
         [JsonReturn]
