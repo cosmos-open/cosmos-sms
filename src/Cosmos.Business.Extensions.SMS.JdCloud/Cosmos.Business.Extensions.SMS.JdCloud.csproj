@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <Import Project="..\..\build\common.ns20.props" />
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyName>Cosmos.Business.Extensions.SMS.JdCloud</AssemblyName>
+        <PackageId>Cosmos.Business.Extensions.SMS.JdCloud</PackageId>
+        <Description>The JD Cloud SMS sink for Cosmos.Business.Extensions.SMS.</Description>
+        <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+        <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+        <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    </PropertyGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Cosmos.Encryption" Version="0.1.1-alpha6-123010" />
+        <PackageReference Include="JDCloudSDK.Sms" Version="1.2.0.1" />
+        <PackageReference Include="Polly" Version="7.1.1" />
+    </ItemGroup>
+</Project>
