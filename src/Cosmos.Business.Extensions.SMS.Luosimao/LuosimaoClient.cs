@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.Luosimao.Configuration;
 using Cosmos.Business.Extensions.SMS.Luosimao.Core;
@@ -12,7 +13,7 @@ using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.Luosimao
 {
-    public class LuosimaoClient
+    public class LuosimaoClient : SmsClientBase
     {
         private readonly LuosimaoConfig _config;
         private readonly LuosimaoAccount _luosimaoAccount;
@@ -23,7 +24,7 @@ namespace Cosmos.Business.Extensions.SMS.Luosimao
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _luosimaoAccount = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
-            _proxy = HttpApiClient.Create<ILuosimaoApi>();
+            _proxy = HttpApi.Create<ILuosimaoApi>();
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
@@ -40,7 +41,7 @@ namespace Cosmos.Business.Extensions.SMS.Luosimao
 
             var auth = "Basic " + Convert.ToBase64String(Encoding.Default.GetBytes($"api:key-{_luosimaoAccount.Password}"));
 
-            var bizParams = new Dictionary<string, string> { { "mobile", message.PhoneNumber }, { "message", $"{message.Content}{_config.SignName}" } };
+            var bizParams = new Dictionary<string, string> {{"mobile", message.PhoneNumber}, {"message", $"{message.Content}{_config.SignName}"}};
 
             var content = new FormUrlEncodedContent(bizParams);
 
@@ -63,7 +64,7 @@ namespace Cosmos.Business.Extensions.SMS.Luosimao
 
             var auth = "Basic " + Convert.ToBase64String(Encoding.Default.GetBytes($"api:key-{_luosimaoAccount.Password}"));
 
-            var bizParams = new Dictionary<string, string> { { "mobile", code.PhoneNumber }, { "message", $"{code.Content}{_config.SignName}" } };
+            var bizParams = new Dictionary<string, string> {{"mobile", code.PhoneNumber}, {"message", $"{code.Content}{_config.SignName}"}};
 
             var content = new FormUrlEncodedContent(bizParams);
 
@@ -82,5 +83,7 @@ namespace Cosmos.Business.Extensions.SMS.Luosimao
                 Error = 500,
                 Msg = "解析错误，返回默认结果"
             };
+        
+        public override void CheckMyself() { }
     }
 }

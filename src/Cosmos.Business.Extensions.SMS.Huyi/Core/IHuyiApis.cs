@@ -6,7 +6,7 @@ using WebApiClient.Attributes;
 namespace Cosmos.Business.Extensions.SMS.Huyi.Core
 {
     [HttpHost("http://106.ihuyi.com")]
-    public interface IHuyiApis : IHttpApiClient
+    public interface IHuyiApis : IHttpApi
     {
         [HttpPost("/webservice/sms.php")]
         [JsonReturn]

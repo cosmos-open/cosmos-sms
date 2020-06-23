@@ -1,13 +1,11 @@
 ﻿namespace Cosmos.Business.Extensions.SMS.ChuangLan.Configuration
 {
-    public class ChuangLanConfig : IConfig
+    public class ChuanglanConfig : IConfig<ChuanglanAccount>
     {
-        public ChuangLanAccount CodeAccount { get; set; }
-
-        public ChuangLanAccount MarketingAccount { get; set; }
-
-        public bool UseMarketingSms { get; set; } = false;
+        public ChuanglanAccount Account { get; set; }
 
         public int RetryTimes { get; set; } = 3;
+
+        public int Timeout { get; set; } = 60000;
     }
 }

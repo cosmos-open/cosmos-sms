@@ -6,7 +6,7 @@ using WebApiClient.Attributes;
 namespace Cosmos.Business.Extensions.SMS.Luosimao.Core
 {
     [HttpHost("http://sms-api.luosimao.com")]
-    public interface ILuosimaoApi : IHttpApiClient
+    public interface ILuosimaoApi : IHttpApi
     {
         [HttpPost("/v1/send.json")]
         [JsonReturn]

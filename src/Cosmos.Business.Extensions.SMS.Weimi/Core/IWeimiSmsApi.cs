@@ -5,7 +5,7 @@ using WebApiClient.Attributes;
 
 namespace Cosmos.Business.Extensions.SMS.Weimi.Core
 {
-    public interface IWeimiSmsApi : IHttpApiClient
+    public interface IWeimiSmsApi : IHttpApi
     {
         [HttpGet("/2/sms/send.html")]
         [JsonReturn]

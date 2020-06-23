@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.TencentCloud.Configuration;
 using Cosmos.Business.Extensions.SMS.TencentCloud.Core;
@@ -14,7 +15,7 @@ namespace Cosmos.Business.Extensions.SMS.TencentCloud
     /// Tencent Cloud SMS / QCloud SMS
     /// </summary>
     /// <remarks>Need to refactor</remarks>
-    public class TencentSmsClient
+    public class TencentSmsClient : SmsClientBase
     {
         private readonly TencentSmsConfig _config;
         private readonly TencentAccount _tencentAccount;
@@ -61,33 +62,7 @@ namespace Cosmos.Business.Extensions.SMS.TencentCloud
             }
         }
 
-        public async Task<TencentSmsSendResponseData> SendCodeAsync(TencentSmsSendCode code)
-        {
-            if (code == null) throw new ArgumentNullException(nameof(code));
-            if (_tencentAccount.AppId <= 0) throw new ArgumentOutOfRangeException(nameof(_tencentAccount.AppId));
-            if (string.IsNullOrWhiteSpace(_tencentAccount.AppKey)) throw new ArgumentNullException(nameof(_tencentAccount.AppKey));
-
-            code.CheckParameters();
-
-            var single = code.PhoneNumbers.Count == 1;
-
-            if (single)
-            {
-                var sender = _proxy.GetSingleSender();
-
-                var response = sender.send(0, code.NationCode, code.PhoneNumbers[0], code.Content, "", "");
-
-                return Convert(response);
-            }
-            else
-            {
-                var sender = _proxy.GetMultiSender();
-
-                var response = sender.send(0, code.NationCode, code.PhoneNumbers, code.Content, "", "");
-
-                return Convert(response);
-            }
-        }
+        public  Task<TencentSmsSendResponseData> SendCodeAsync(TencentSmsSendCode code) => SendAsync(code);
 
         private static TencentSmsSendResponseData Convert(SmsSingleSenderResult response)
         {
@@ -127,5 +102,7 @@ namespace Cosmos.Business.Extensions.SMS.TencentCloud
 
             return ret;
         }
+        
+        public override void CheckMyself() { }
     }
 }

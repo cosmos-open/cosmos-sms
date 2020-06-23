@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\build\common.ns20-net461.props" />
+  <Import Project="..\..\build\common.ns20.props" />
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Cosmos.Business.Extensions.SMS.SendCloud</AssemblyName>
     <PackageId>Cosmos.Business.Extensions.SMS.SendCloud</PackageId>
     <Description>The SendCloud sms service sink for Cosmos.Business.Extensions.SMS.</Description>
@@ -13,8 +13,8 @@
     <ProjectReference Include="..\Cosmos.Business.Extensions.SMS\Cosmos.Business.Extensions.SMS.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Cosmos.Encryption" Version="0.1.1-alpha4-101140" />
-    <PackageReference Include="Laojiu.WebApiClient" Version="1.2.2" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Cosmos.Encryption" Version="0.1.1-alpha6-123010" />
+    <PackageReference Include="WebApiClient.JIT" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
   </ItemGroup>
 </Project>

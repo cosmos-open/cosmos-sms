@@ -2,7 +2,7 @@
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Configuration
 {
-    public class ChuangLanAccount : IAccountSettings
+    public class ChuanglanAccount : IAccountSettings
     {
         public string User { get; set; }
 

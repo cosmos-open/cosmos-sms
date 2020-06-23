@@ -1,7 +1,7 @@
 ﻿namespace Cosmos.Business.Extensions.SMS.ChuangLan.Core
 {
-    public class ChuangLanConstants
+    public class ChuanglanConstants
     {
-        public const string ServiceName = "ChuangLan";
+        public const string ServiceName = "ChuangLan253";
     }
 }

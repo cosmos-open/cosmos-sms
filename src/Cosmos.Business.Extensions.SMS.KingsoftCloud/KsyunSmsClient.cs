@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.KingsoftCloud.Configuration;
 using Cosmos.Business.Extensions.SMS.KingsoftCloud.Core;
@@ -11,7 +12,7 @@ using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.KingsoftCloud
 {
-    public class KsyunSmsClient
+    public class KsyunSmsClient : SmsClientBase
     {
         private readonly KsyunConfig _config;
         private readonly KsyunAccount _account;
@@ -24,7 +25,7 @@ namespace Cosmos.Business.Extensions.SMS.KingsoftCloud
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _account = _config.Account ?? throw new ArgumentNullException(nameof(_config.Account));
             _apiServerUrl = $"{GetHttpPrefix(config)}://{KsyunSmsConstants.Host}";
-            _proxy = HttpApiClient.Create<IKsyunSmsApis>(_apiServerUrl);
+            _proxy = HttpApi.Create<IKsyunSmsApis>(_apiServerUrl);
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
@@ -97,5 +98,7 @@ namespace Cosmos.Business.Extensions.SMS.KingsoftCloud
 
             return "https";
         }
+
+        public override void CheckMyself() { }
     }
 }

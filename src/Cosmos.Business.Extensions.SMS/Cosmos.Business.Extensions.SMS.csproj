@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-  <Import Project="..\..\build\common.ns20-net461.props" />
+  <Import Project="..\..\build\common.ns20.props" />
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AssemblyName>Cosmos.Business.Extensions.SMS</AssemblyName>
     <PackageId>Cosmos.Business.Extensions.SMS</PackageId>
     <Description>The SMS component, a business extension for Cosmos.</Description>
@@ -15,6 +15,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Xml" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
-    <PackageReference Include="System.Collections.Immutable" Version="1.5.0" />
+    <PackageReference Include="System.Collections.Immutable" Version="1.6.0-preview7.19362.9" />
   </ItemGroup>
 </Project>

@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
 {
-    public class ChuangLanSmsCode : ChuangLanSmsBase
+    public class ChuanglanSmsCode : ChuanglanSmsBase
     {
         [JsonProperty("phone")]
         public string Phone { get; set; }
@@ -16,12 +16,12 @@ namespace Cosmos.Business.Extensions.SMS.ChuangLan.Models
         {
             if (string.IsNullOrWhiteSpace(Phone))
             {
-                throw new InvalidArgumentException("收信人为空", ChuangLanConstants.ServiceName, 401);
+                throw new InvalidArgumentException("收信人为空", ChuanglanConstants.ServiceName, 401);
             }
 
             if (string.IsNullOrWhiteSpace(Msg))
             {
-                throw new InvalidArgumentException("验证码为空", ChuangLanConstants.ServiceName, 401);
+                throw new InvalidArgumentException("验证码为空", ChuanglanConstants.ServiceName, 401);
             }
         }
     }

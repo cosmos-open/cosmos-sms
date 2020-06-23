@@ -1,6 +1,6 @@
 ﻿namespace Cosmos.Business.Extensions.SMS.KingsoftCloud.Configuration
 {
-    public class KsyunConfig : IConfig
+    public class KsyunConfig : IConfig<KsyunAccount>
     {
         public KsyunAccount Account { get; set; }
 

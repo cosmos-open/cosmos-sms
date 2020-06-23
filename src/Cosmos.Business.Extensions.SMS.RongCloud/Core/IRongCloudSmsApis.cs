@@ -7,7 +7,7 @@ using WebApiClient.Attributes;
 namespace Cosmos.Business.Extensions.SMS.RongCloud.Core
 {
     [HttpHost("http://api.sms.ronghub.com")]
-    public interface IRongCloudSmsApis : IHttpApiClient
+    public interface IRongCloudSmsApis : IHttpApi
     {
         [HttpPost("/sendNotify.json")]
         [JsonReturn]

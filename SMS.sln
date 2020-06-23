@@ -87,6 +87,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Folder", "Solution
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.KingsoftCloud", "src\Cosmos.Business.Extensions.SMS.KingsoftCloud\Cosmos.Business.Extensions.SMS.KingsoftCloud.csproj", "{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.JdCloud", "src\Cosmos.Business.Extensions.SMS.JdCloud\Cosmos.Business.Extensions.SMS.JdCloud.csproj", "{42E87E36-EE9A-423F-A068-9D2728067EA0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.JdCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.JdCloud.Tests\Cosmos.Business.Extensions.SMS.JdCloud.Tests.csproj", "{B6885151-DA79-4E31-84B5-A85EB55AE55C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.HuaweiCloud", "src\Cosmos.Business.Extensions.SMS.HuaweiCloud\Cosmos.Business.Extensions.SMS.HuaweiCloud.csproj", "{D1DCB120-8296-4B94-BD09-42F33C45E671}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cosmos.Business.Extensions.SMS.HuaweiCloud.Tests", "tests\Cosmos.Business.Extensions.SMS.HuaweiCloud.Tests\Cosmos.Business.Extensions.SMS.HuaweiCloud.Tests.csproj", "{E37691FC-2C4F-4AFB-9805-9759BC352E1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -221,6 +229,22 @@ Global
 		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42E87E36-EE9A-423F-A068-9D2728067EA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42E87E36-EE9A-423F-A068-9D2728067EA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42E87E36-EE9A-423F-A068-9D2728067EA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42E87E36-EE9A-423F-A068-9D2728067EA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6885151-DA79-4E31-84B5-A85EB55AE55C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6885151-DA79-4E31-84B5-A85EB55AE55C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6885151-DA79-4E31-84B5-A85EB55AE55C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6885151-DA79-4E31-84B5-A85EB55AE55C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1DCB120-8296-4B94-BD09-42F33C45E671}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1DCB120-8296-4B94-BD09-42F33C45E671}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1DCB120-8296-4B94-BD09-42F33C45E671}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1DCB120-8296-4B94-BD09-42F33C45E671}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E37691FC-2C4F-4AFB-9805-9759BC352E1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E37691FC-2C4F-4AFB-9805-9759BC352E1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E37691FC-2C4F-4AFB-9805-9759BC352E1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E37691FC-2C4F-4AFB-9805-9759BC352E1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -260,6 +284,10 @@ Global
 		{F76141AA-F359-4FEB-A7B9-C32C30E680A0} = {610E085E-462C-4E0D-9879-6D6C0BDA1E65}
 		{0149E953-4187-47AB-BED4-62BDF6348A2B} = {610E085E-462C-4E0D-9879-6D6C0BDA1E65}
 		{ECA4E9F7-4BEA-454B-9E59-078E801A9DFE} = {05215128-1771-4B71-9860-3703162B541B}
+		{42E87E36-EE9A-423F-A068-9D2728067EA0} = {05215128-1771-4B71-9860-3703162B541B}
+		{B6885151-DA79-4E31-84B5-A85EB55AE55C} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
+		{D1DCB120-8296-4B94-BD09-42F33C45E671} = {05215128-1771-4B71-9860-3703162B541B}
+		{E37691FC-2C4F-4AFB-9805-9759BC352E1D} = {FD180CE3-384B-4A03-B2D2-AC18ADAF2E7F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {397F2541-42DD-474F-AE9D-4CF4D8610823}

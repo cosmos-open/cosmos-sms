@@ -2,16 +2,18 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Cosmos.Business.Extensions.SMS.Client;
 using Cosmos.Business.Extensions.SMS.Exceptions;
 using Cosmos.Business.Extensions.SMS.Huyi.Configuration;
 using Cosmos.Business.Extensions.SMS.Huyi.Core;
+using Cosmos.Business.Extensions.SMS.Huyi.Core.Helpers;
 using Cosmos.Business.Extensions.SMS.Huyi.Models;
 using Cosmos.Business.Extensions.SMS.Huyi.Models.Results;
 using WebApiClient;
 
 namespace Cosmos.Business.Extensions.SMS.Huyi
 {
-    public class HuyiClient
+    public class HuyiClient : SmsClientBase
     {
         private readonly HuyiConfig _config;
         private readonly HuyiAccount _account;
@@ -22,8 +24,7 @@ namespace Cosmos.Business.Extensions.SMS.Huyi
         {
             _config = config ?? throw new ArgumentNullException(nameof(config));
             _account = config.Account ?? throw new ArgumentNullException(nameof(config.Account));
-
-            _proxy = HttpApiClient.Create<IHuyiApis>();
+            _proxy = WebApiClientCreator.Create(config);
 
             var globalHandle = ExceptionHandleResolver.ResolveHandler();
             globalHandle += exceptionHandler;
@@ -38,12 +39,14 @@ namespace Cosmos.Business.Extensions.SMS.Huyi
 
             message.CheckParameters();
 
-            var bizParams = new Dictionary<string, string>();
-            bizParams.Add("account", _account.AppId);
-            bizParams.Add("password", _account.ApiKey);
-            bizParams.Add("mobile", message.PhoneNumber);
-            bizParams.Add("content", message.Message);
-            bizParams.Add("format", "json");
+            var bizParams = new Dictionary<string, string>
+            {
+                {"account", _account.AppId},
+                {"password", _account.ApiKey},
+                {"mobile", message.PhoneNumber},
+                {"content", message.Message},
+                {"format", "json"}
+            };
 
             var content = new FormUrlEncodedContent(bizParams);
 
@@ -63,5 +66,6 @@ namespace Cosmos.Business.Extensions.SMS.Huyi
                 Message = "解析错误，返回默认结果"
             };
 
+        public override void CheckMyself() { }
     }
 }
